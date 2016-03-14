@@ -13,18 +13,16 @@
 
 #define NPAIRS 3 //Number of text/background colours
 #define INITPAIR 0 //Should stay 0 - is the initial text/background pair
-#define BUFFER_BTW_BUTTONS 50 //Amount of black pixels between buttons
+#define BUFFER_BTW_BUTTONS 50 //Amount of pixels between buttons
 #define NMENUS 3 //Number of submenus
 
 //Dimensions for save/load menu
-#define SL_LEFT_BOX_XSTART XRES/5
-#define SL_LEFT_BOX_XEND 100 + SL_LEFT_BOX_XSTART
-#define SL_RIGHT_BOX_XSTART SL_RIGHT_BOX_XEND - 100
-#define SL_RIGHT_BOX_XEND 4*XRES/5
-#define SL_TOPBOX_YSTART YRES/4
-#define SL_TOPBOC_YEND 62 + SL_TOPBOX_YSTART
-#define SL_LOWBOX_YSTART SL_TOPBOC_YEND + BUFFER_BTW_BUTTONS
-#define SL_LOWBOX_YEND SL_LOWBOX_YSTART + 50
+#define SL_LEFT_BOX_XSTART BUFFER_BTW_BUTTONS
+#define SL_LEFT_BOX_XEND XRES/2 - BUFFER_BTW_BUTTONS/2
+#define SL_RIGHT_BOX_XSTART XRES/2 + BUFFER_BTW_BUTTONS/2
+#define SL_RIGHT_BOX_XEND XRES - BUFFER_BTW_BUTTONS
+#define SL_TOPBOX_YSTART YRES/3
+#define SL_TOPBOC_YEND 2*YRES/3
 
 //Dimensions for interpret menu
 #define I_LEFT_ALIGN XRES/5

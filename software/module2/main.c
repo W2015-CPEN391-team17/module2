@@ -134,7 +134,7 @@ void draw_menu(void)
 	WriteHLine(0, MENU_TOP, XRES - 1, BLACK);
 	WriteVLine(XRES/3, MENU_TOP, YRES - MENU_TOP - 1, BLACK);
 	WriteVLine(XRES*2/3, MENU_TOP, YRES - MENU_TOP - 1, BLACK);
-	Text(10, (MENU_TOP + YRES)/2, colourScheme.text, colourScheme.menuBackground, "Save/Load", 0);
+	Text(10, (MENU_TOP + YRES)/2, colourScheme.text, colourScheme.menuBackground, "Load", 0);
 	Text(XRES/3 + 10, (MENU_TOP + YRES)/2, colourScheme.text, colourScheme.menuBackground, "Interpret", 0);
 	Text(XRES*2/3 + 10, (MENU_TOP + YRES)/2, colourScheme.text, colourScheme.menuBackground, "Settings", 0);
 }
