@@ -23,6 +23,7 @@ typedef struct {
 typedef struct {
 	dataSet workingDataSet; //data currently being displayed
 	dataSet dataSets[MAX_N_SETS]; //cache for SD contents
+	int headTimeQueue;
 } localDataSets;
 
 // data being displayed on the screen and cached from SD card

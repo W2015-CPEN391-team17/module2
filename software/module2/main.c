@@ -23,7 +23,6 @@ void initialize_demodata(void);
 void cleanup(void);
 
 // Data-independent drawing functions.
-void draw_field(void);
 void draw_menu(void);
 
 // Main menu function
@@ -113,21 +112,6 @@ void cleanup(void)
 	//Nothing yet
 }
 
-void draw_field(void)
-{
-	//Centre circle
-	WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/8, BLACK);
-	//Middle line
-	WriteVLine(XRES/2, 0, MENU_TOP, BLACK);
-	//Goals
-	WriteVLine(GOAL_WIDTH, MENU_TOP/4, MENU_TOP/2, BLACK);
-	WriteVLine(XRES-GOAL_WIDTH, MENU_TOP/4, MENU_TOP/2, BLACK);
-	WriteHLine(0, MENU_TOP/4, GOAL_WIDTH, BLACK);
-	WriteHLine(0, 3*MENU_TOP/4, GOAL_WIDTH, BLACK);
-	WriteHLine(XRES-GOAL_WIDTH, MENU_TOP/4, GOAL_WIDTH-1, BLACK);
-	WriteHLine(XRES-GOAL_WIDTH, 3*MENU_TOP/4, GOAL_WIDTH-1, BLACK);
-}
-
 void draw_menu(void)
 {
 	WriteFilledRectangle(0, MENU_TOP, XRES-1, YRES-1, colourScheme.menuBackground);
@@ -144,7 +128,7 @@ void main_menu(void)
 	clear_screen(WHITE);
 
 	draw_heatmap(localData.workingDataSet.points, localData.workingDataSet.size, colourScheme);
-	draw_field();
+	WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
 	draw_menu();
 	Point p;
 	p = GetPress();
@@ -175,7 +159,7 @@ void main_menu(void)
 				draw_heatmap(localData.workingDataSet.points, localData.workingDataSet.size, colourScheme);
 			}
 
-			draw_field();
+			WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
 		}else{
 			if(firstTime){
 				showing_heatmap = !showing_heatmap;
