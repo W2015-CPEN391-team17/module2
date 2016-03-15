@@ -21,7 +21,6 @@ typedef struct {
 } dataSet;
 
 typedef struct {
-	dataSet workingDataSet; //data currently being displayed
 	dataSet dataSets[MAX_N_SETS]; //cache for SD contents
 	int headTimeQueue;
 } localDataSets;
@@ -29,23 +28,10 @@ typedef struct {
 // data being displayed on the screen and cached from SD card
 localDataSets localData;
 
-/*
- * Copy the data from the slot with the given index in datasets
- * to workingDataSet
- */
-void load_into_workingDataSet(int index);
-
-/*
- * Copy the data from the workingDataSet to the slot with the
- * given index in datasets
- */
-void save_from_workingDataSet(int index);
-
-/*
- * On start up, copy the data from the GPS to the workingDataSet
- * to display the GPS data immediately
- */
-void loadgps_workingDataSet(void);
+struct{
+	int size;
+	GPSPoint points[MAX_N_POINTS*MAX_N_SETS];
+}aggregateSet;
 
 /*
  * Load data from FILENAME on SD card to localData.dataSets
@@ -56,5 +42,7 @@ void load_from_SD_to_dataSets(void);
  * Save localData.dataSets to file FILENAME on SD card
  */
 void save_to_SD_from_dataSets(void);
+
+void setupAggregate();
 
 #endif /* DATASETS_H_ */

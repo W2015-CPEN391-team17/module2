@@ -43,7 +43,6 @@ int main()
   initialize_datasets();
 
   save_points();
-  loadgps_workingDataSet();
   initialize_demodata();
   //load_from_SD_to_dataSets();
   main_menu();
@@ -90,7 +89,10 @@ void initialize_datasets()
 	for(i = 0; i < MAX_N_SETS; i++) {
 		localData.dataSets[i].size = 0;
 	}
-	//TODO should copy data from SD card instead
+
+	localData.headTimeQueue = 0;
+
+	aggregateSet.size = 0;
 }
 
 void initialize_demodata()
@@ -100,6 +102,8 @@ void initialize_demodata()
 	for(set = 0; set < MAX_N_SETS; set++){
 		save_demo_points(set);
 	}
+
+	setupAggregate();
 }
 
 void read_from_SD()
@@ -127,7 +131,7 @@ void main_menu(void)
 {
 	clear_screen(WHITE);
 
-	draw_heatmap(localData.workingDataSet.points, localData.workingDataSet.size, colourScheme);
+	draw_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
 	WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
 	draw_menu();
 	Point p;
@@ -137,6 +141,7 @@ void main_menu(void)
 	int firstTime = TRUE;
 	int showing_heatmap = TRUE;
 	int outSubMenu = FALSE;
+	int aggregate = FALSE;
 	while(1)
 	{
 		if(p.y < MENU_TOP){
@@ -154,9 +159,17 @@ void main_menu(void)
 			}
 
 			if(showing_heatmap){
-				connect_points(localData.workingDataSet.points, localData.workingDataSet.size, colourScheme);
+				if(aggregate){
+					connect_points(aggregateSet.points, aggregateSet.size, colourScheme);//THIS DOESN'T WORK (DUH)
+				}else{
+					connect_points(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+				}
 			}else{
-				draw_heatmap(localData.workingDataSet.points, localData.workingDataSet.size, colourScheme);
+				if(aggregate){
+					draw_heatmap(aggregateSet.points, aggregateSet.size, colourScheme);
+				}else{
+					draw_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+				}
 			}
 
 			WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
@@ -167,7 +180,7 @@ void main_menu(void)
 
 			if(p.x < XRES / NMENUS){
 				//Save/Load touched
-				SaveLoadMenu(&p, &colourScheme);
+				aggregate = SaveLoadMenu(&p, &colourScheme);
 				showing_heatmap = FALSE;
 				GetRelease();
 			}else if(p.x < 2 * XRES / NMENUS){

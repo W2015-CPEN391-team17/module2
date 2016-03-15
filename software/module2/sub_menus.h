@@ -39,7 +39,7 @@
 
 void initInterpret(int count[HEATMAP_H][HEATMAP_V], int nPoints);
 
-void SaveLoadMenu(Point*, Colours*);
+int SaveLoadMenu(Point*, Colours*);
 
 void InterpretMenu(Point*, Colours*);
 

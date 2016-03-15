@@ -53,7 +53,7 @@ void initInterpret(int count[HEATMAP_H][HEATMAP_V], int nPoints){
 /*
  * Displays the Save/Load menu.
  */
-void SaveLoadMenu(Point* p, Colours* scheme){
+int SaveLoadMenu(Point* p, Colours* scheme){
 	WriteFilledRectangle(0, 0, XRES-1, MENU_TOP-1, WHITE);
 
 	//If the background is WHITE then just draw boarders in black for buttons
@@ -76,10 +76,10 @@ void SaveLoadMenu(Point* p, Colours* scheme){
 	if(p->y < SL_TOPBOC_YEND && p->y > SL_TOPBOX_YSTART && p->x > SL_LEFT_BOX_XSTART && p->x < SL_RIGHT_BOX_XEND){
 		if(p->x < SL_LEFT_BOX_XEND){
 			//Load latest data
-			printf("Latest\n");
+			return FALSE;
 		}else if(p->x > SL_RIGHT_BOX_XSTART){
 			//Load aggregate
-			printf("Aggregate\n");
+			return TRUE;
 		}
 	}
 }
