@@ -65,14 +65,12 @@ void draw_heatmap(GPSPoint points[], int numPoints, Colours colourScheme)
 	}
 }
 
-void connect_points(GPSPoint points[], int numPoints, Colours colourScheme)
+void connect_points(GPSPoint points[], int numPoints, int connectTheDotsLine)
 {
-	WriteFilledRectangle(0,0,XRES-1,MENU_TOP-1,WHITE);
-
 	GPSPoint point_a;
 	GPSPoint point_b;
 	if (numPoints > 0) {
-		WriteCircle(points[0].x, points[0].y, POINT_CIRCLE_RADIUS, colourScheme.connectTheDotsLine);
+		WriteCircle(points[0].x, points[0].y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
 	}
 	int i;
 	for(i = 1; i < numPoints; i++) {
@@ -80,9 +78,27 @@ void connect_points(GPSPoint points[], int numPoints, Colours colourScheme)
 		point_b = points[i];
 
 		// draw circle around each point for testing
-		WriteCircle(point_b.x, point_b.y, POINT_CIRCLE_RADIUS, colourScheme.connectTheDotsLine);
+		WriteCircle(point_b.x, point_b.y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
 
 		// draw a line from point_a to point_b
-		WriteLine((int)point_a.x, (int)point_a.y, (int)point_b.x, (int)point_b.y, colourScheme.connectTheDotsLine);
+		WriteLine((int)point_a.x, (int)point_a.y, (int)point_b.x, (int)point_b.y, connectTheDotsLine);
 	}
+}
+
+void connect_points_all_sets(localDataSets sets, Colours colourScheme){
+	int i, color;
+	for(i = 0, color = 0; i < MAX_N_SETS; i++){
+		if(sets.headTimeQueue == i){
+			continue;
+		}else{
+			while(color == colourScheme.connectTheDotsLine || color == colourScheme.menuBackground){
+				color++;
+			}
+
+			connect_points(sets.dataSets[i].points, sets.dataSets[i].size, color);
+			color++;
+		}
+	}
+
+	connect_points(sets.dataSets[sets.headTimeQueue].points, sets.dataSets[sets.headTimeQueue].size, colourScheme.connectTheDotsLine);
 }

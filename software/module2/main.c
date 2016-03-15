@@ -132,7 +132,7 @@ void main_menu(void)
 	clear_screen(WHITE);
 
 	draw_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
-	WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
+	Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
 	draw_menu();
 	Point p;
 	p = GetPress();
@@ -159,10 +159,11 @@ void main_menu(void)
 			}
 
 			if(showing_heatmap){
+				WriteFilledRectangle(0,0,XRES-1,MENU_TOP-1,WHITE);
 				if(aggregate){
-					connect_points(aggregateSet.points, aggregateSet.size, colourScheme);//THIS DOESN'T WORK (DUH)
+					connect_points_all_sets(localData, colourScheme);
 				}else{
-					connect_points(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+					connect_points(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme.connectTheDotsLine);
 				}
 			}else{
 				if(aggregate){
@@ -172,7 +173,7 @@ void main_menu(void)
 				}
 			}
 
-			WriteCircle(XRES/2, MENU_TOP/2, MENU_TOP/128, BLACK);
+			Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
 		}else{
 			if(firstTime){
 				showing_heatmap = !showing_heatmap;
