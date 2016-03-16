@@ -1,0 +1,36 @@
+# Ignore db and generated files
+db/
+incremental_db/
+nios_system/synthesis/
+.qsys_edit/
+*.cproject
+*.rpt
+*.done
+*.smsg
+*.pof
+*.sof
+*.qws
+*.summary
+*.jdi
+*.pin
+*.bsf
+*.cmp
+*.html
+*.sopcinfo
+
+# Software files
+*.o
+*.elf
+*.map
+libhal_bsp.a
+*.objdump
+*.d
+software/module2_bsp/alt_sys_init.c
+software/module2_bsp/linker.h
+software/module2_bsp/linker.x
+software/module2_bsp/memory.gdb
+software/module2_bsp/system.h
+
+# Software cscope files
+software/module2/cscope*
+
