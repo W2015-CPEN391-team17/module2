@@ -1,5 +1,5 @@
 Flow report for lights
-Wed Mar 16 21:27:56 2016
+Thu Mar 17 13:30:19 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Mar 16 21:27:52 2016           ;
+; Flow Status                        ; Successful - Thu Mar 17 13:30:12 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; lights                                          ;
 ; Top-level Entity Name              ; SystemTopLevel                                  ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 10,542 / 33,216 ( 32 % )                        ;
-;     Total combinational functions  ; 9,327 / 33,216 ( 28 % )                         ;
+; Total logic elements               ; 10,549 / 33,216 ( 32 % )                        ;
+;     Total combinational functions  ; 9,330 / 33,216 ( 28 % )                         ;
 ;     Dedicated logic registers      ; 5,496 / 33,216 ( 17 % )                         ;
 ; Total registers                    ; 5564                                            ;
 ; Total pins                         ; 242 / 475 ( 51 % )                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/16/2016 21:25:27 ;
+; Start date & time ; 03/17/2016 13:26:00 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lights              ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+----------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name    ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+----------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 0.145818872631134                     ; --            ; --             ; --             ;
+; COMPILER_SIGNATURE_ID               ; 0.145824635904771                     ; --            ; --             ; --             ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE    ; Speed                                 ; Balanced      ; --             ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; None                                  ; --            ; --             ; eda_simulation ;
 ; FITTER_EFFORT                       ; Standard Fit                          ; Auto Fit      ; --             ; --             ;
@@ -100,11 +100,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:58     ; 1.0                     ; 912 MB              ; 00:01:06                           ;
-; Fitter                    ; 00:01:19     ; 1.0                     ; 880 MB              ; 00:01:19                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 606 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 1.0                     ; 667 MB              ; 00:00:03                           ;
-; Total                     ; 00:02:22     ; --                      ; --                  ; 00:02:30                           ;
+; Analysis & Synthesis      ; 00:01:52     ; 1.0                     ; 916 MB              ; 00:02:10                           ;
+; Fitter                    ; 00:02:08     ; 1.0                     ; 875 MB              ; 00:02:07                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 606 MB              ; 00:00:03                           ;
+; TimeQuest Timing Analyzer ; 00:00:05     ; 1.0                     ; 666 MB              ; 00:00:05                           ;
+; Total                     ; 00:04:08     ; --                      ; --                  ; 00:04:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -113,10 +113,10 @@ applicable agreement for further details.
 +---------------------------+------------------+--------------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
 +---------------------------+------------------+--------------+------------+----------------+
-; Analysis & Synthesis      ; r2d2             ; Ubuntu 15.10 ; 15         ; x86_64         ;
-; Fitter                    ; r2d2             ; Ubuntu 15.10 ; 15         ; x86_64         ;
-; Assembler                 ; r2d2             ; Ubuntu 15.10 ; 15         ; x86_64         ;
-; TimeQuest Timing Analyzer ; r2d2             ; Ubuntu 15.10 ; 15         ; x86_64         ;
+; Analysis & Synthesis      ; c3po             ; Ubuntu 15.10 ; 15         ; x86_64         ;
+; Fitter                    ; c3po             ; Ubuntu 15.10 ; 15         ; x86_64         ;
+; Assembler                 ; c3po             ; Ubuntu 15.10 ; 15         ; x86_64         ;
+; TimeQuest Timing Analyzer ; c3po             ; Ubuntu 15.10 ; 15         ; x86_64         ;
 +---------------------------+------------------+--------------+------------+----------------+
 
 

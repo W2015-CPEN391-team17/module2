@@ -47,7 +47,7 @@ int sd_card_save(char *filename)
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
-								if (alt_up_sd_card_write(file_handle, (unsigned char)*(&localData + i)) == false) {
+								if (alt_up_sd_card_write(file_handle, localData.bytes[i]) == false) {
 									printf("Error writing to file...\n");
 									alt_up_sd_card_fclose(file_handle);
 									return -1;
@@ -115,7 +115,7 @@ int sd_card_load(char *filename)
 							int i;
 							for (i = 0; i < size; i++) {
 								read = alt_up_sd_card_read(file_handle); //TODO check value of read?
-								*(&localData + i) = (char)read;
+								localData.bytes[i] = (unsigned char)read;
 							}
 
 							if (alt_up_sd_card_fclose(file_handle) == false) {

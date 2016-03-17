@@ -16,19 +16,23 @@
 #define MAX_N_SETS 10
 
 typedef struct {
-	int size; //number of points in the set
-	GPSPoint points[MAX_N_POINTS]; //
+	int size; // number of points in the set
+	GPSPoint points[MAX_N_POINTS];
 } dataSet;
 
-typedef struct {
-	dataSet dataSets[MAX_N_SETS]; //cache for SD contents
-	int headTimeQueue;
+typedef union
+{
+	struct {
+		dataSet dataSets[MAX_N_SETS]; // cache for SD contents
+		int headTimeQueue;
+	};
+	unsigned char bytes[0]; // to conveniently copy one byte at at time
 } localDataSets;
 
 struct{
 	int size;
 	GPSPoint points[MAX_N_POINTS*MAX_N_SETS];
-}aggregateSet;
+} aggregateSet;
 
 /*
  * Load data from FILENAME on SD card to localData.dataSets
