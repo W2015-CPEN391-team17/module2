@@ -117,6 +117,7 @@ int sd_card_load(char *filename)
 								read = alt_up_sd_card_read(file_handle); //TODO check value of read?
 								localData.bytes[i] = (unsigned char)read;
 							}
+							printf("\n\n!!!!!i was equal to %d\n\n",i);//TODO DEBUG
 
 							if (alt_up_sd_card_fclose(file_handle) == false) {
 								printf("WARNING: alt_up_sd_card_fclose was unsuccessful\n");
