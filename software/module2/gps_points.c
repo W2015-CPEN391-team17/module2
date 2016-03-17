@@ -146,7 +146,6 @@ void save_points(void){
 	int j = 200;
 	int k = 0;
 	int n = 23;
-	int s = 0;
 	int x = XRES/4;
 	int y = 5*YRES/6;
 	int r = 10;
@@ -292,7 +291,6 @@ void log_now(void){
 	int i;
 	const char command[] = "$PMTK186,1*20\r\n";
 	int length = strlen(command);
-	char string[256] = {0};
 
 	printf("Logging...\n");
 	// here we send the command to the gps

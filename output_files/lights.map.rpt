@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lights
-Wed Mar 16 11:23:40 2016
+Wed Mar 16 21:26:27 2016
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -383,13 +383,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Mar 16 11:23:40 2016           ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 16 21:26:26 2016           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; lights                                          ;
 ; Top-level Entity Name              ; SystemTopLevel                                  ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 11,016                                          ;
-;     Total combinational functions  ; 9,321                                           ;
+; Total logic elements               ; 11,014                                          ;
+;     Total combinational functions  ; 9,319                                           ;
 ;     Dedicated logic registers      ; 5,622                                           ;
 ; Total registers                    ; 5622                                            ;
 ; Total pins                         ; 242                                             ;
@@ -491,7 +491,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 ; Processors                 ; Number ;
 +----------------------------+--------+
-; Number detected on machine ; 4      ;
+; Number detected on machine ; 8      ;
 ; Maximum allowed            ; 1      ;
 +----------------------------+--------+
 
@@ -665,16 +665,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                                                              ;
 +---------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 11,016                                                                                                             ;
+; Estimated Total logic elements              ; 11,014                                                                                                             ;
 ;                                             ;                                                                                                                    ;
-; Total combinational functions               ; 9321                                                                                                               ;
+; Total combinational functions               ; 9319                                                                                                               ;
 ; Logic element usage by number of LUT inputs ;                                                                                                                    ;
-;     -- 4 input functions                    ; 4781                                                                                                               ;
+;     -- 4 input functions                    ; 4778                                                                                                               ;
 ;     -- 3 input functions                    ; 2652                                                                                                               ;
-;     -- <=2 input functions                  ; 1888                                                                                                               ;
+;     -- <=2 input functions                  ; 1889                                                                                                               ;
 ;                                             ;                                                                                                                    ;
 ; Logic elements by mode                      ;                                                                                                                    ;
-;     -- normal mode                          ; 8030                                                                                                               ;
+;     -- normal mode                          ; 8028                                                                                                               ;
 ;     -- arithmetic mode                      ; 1291                                                                                                               ;
 ;                                             ;                                                                                                                    ;
 ; Total registers                             ; 5622                                                                                                               ;
@@ -689,7 +689,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;                                                                                                                    ;
 ; Maximum fan-out node                        ; NIOS_II_SYSTEM:inst3|nios_system:NiosII|nios_system_up_clocks_0:up_clocks_0|altpll:DE_Clock_Generator_System|_clk0 ;
 ; Maximum fan-out                             ; 4867                                                                                                               ;
-; Total fan-out                               ; 57496                                                                                                              ;
+; Total fan-out                               ; 57486                                                                                                              ;
 ; Average fan-out                             ; 3.71                                                                                                               ;
 +---------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
@@ -699,7 +699,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+
 ; Compilation Hierarchy Node                                                                                                                   ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                                                                                            ; Library Name                     ;
 +----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+
-; |SystemTopLevel                                                                                                                              ; 9321 (45)         ; 5622 (2)     ; 215424      ; 4            ; 0       ; 2         ; 242  ; 0            ; |SystemTopLevel                                                                                                                                                                                                                                                                                                                                                                                                                                ; work                             ;
+; |SystemTopLevel                                                                                                                              ; 9319 (45)         ; 5622 (2)     ; 215424      ; 4            ; 0       ; 2         ; 242  ; 0            ; |SystemTopLevel                                                                                                                                                                                                                                                                                                                                                                                                                                ; work                             ;
 ;    |HexDisplays:inst|                                                                                                                        ; 56 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|HexDisplays:inst                                                                                                                                                                                                                                                                                                                                                                                                               ; work                             ;
 ;       |HexTo7SegmentDisplay:inst11|                                                                                                          ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|HexDisplays:inst|HexTo7SegmentDisplay:inst11                                                                                                                                                                                                                                                                                                                                                                                   ; work                             ;
 ;       |HexTo7SegmentDisplay:inst12|                                                                                                          ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|HexDisplays:inst|HexTo7SegmentDisplay:inst12                                                                                                                                                                                                                                                                                                                                                                                   ; work                             ;
@@ -1004,8 +1004,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;          |JEQQ5299:ESUL0435|                                                                                                                 ; 22 (22)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|pzdyqx:nabboc|pzdyqx_impl:pzdyqx_impl_inst|JEQQ5299:ESUL0435                                                                                                                                                                                                                                                                                                                                                                   ; work                             ;
 ;          |JKWY9152:RUWH6717|                                                                                                                 ; 13 (13)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|pzdyqx:nabboc|pzdyqx_impl:pzdyqx_impl_inst|JKWY9152:RUWH6717                                                                                                                                                                                                                                                                                                                                                                   ; work                             ;
 ;          |PUDL0439:VWQM3427|                                                                                                                 ; 23 (23)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|pzdyqx:nabboc|pzdyqx_impl:pzdyqx_impl_inst|PUDL0439:VWQM3427                                                                                                                                                                                                                                                                                                                                                                   ; work                             ;
-;    |sld_hub:auto_hub|                                                                                                                        ; 209 (1)           ; 109 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                                                                                                               ; work                             ;
-;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                                                                                         ; 208 (165)         ; 109 (80)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                                                                                                                                                                                                                                                                                                  ; work                             ;
+;    |sld_hub:auto_hub|                                                                                                                        ; 207 (1)           ; 109 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                                                                                                               ; work                             ;
+;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                                                                                         ; 206 (163)         ; 109 (80)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                                                                                                                                                                                                                                                                                                  ; work                             ;
 ;          |sld_rom_sr:hub_info_reg|                                                                                                           ; 26 (26)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg                                                                                                                                                                                                                                                                                                                                          ; work                             ;
 ;          |sld_shadow_jsm:shadow_jsm|                                                                                                         ; 17 (17)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |SystemTopLevel|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_shadow_jsm:shadow_jsm                                                                                                                                                                                                                                                                                                                                        ; work                             ;
 +----------------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------+
@@ -10426,8 +10426,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------------+
 ; Partition Name   ; Elapsed Time ;
 +------------------+--------------+
-; Top              ; 00:00:40     ;
-; sld_hub:auto_hub ; 00:00:01     ;
+; Top              ; 00:00:25     ;
+; sld_hub:auto_hub ; 00:00:00     ;
 ; pzdyqx:nabboc    ; 00:00:00     ;
 +------------------+--------------+
 
@@ -10438,56 +10438,56 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Mar 16 11:21:59 2016
+    Info: Processing started: Wed Mar 16 21:25:26 2016
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off NIOS_II_System -c lights
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12248): Elaborating Qsys system entity "nios_system.qsys"
-Info (12250): 2016.03.16.11:22:05 Progress: Loading module2-de2/nios_system.qsys
-Info (12250): 2016.03.16.11:22:05 Progress: Reading input file
-Info (12250): 2016.03.16.11:22:05 Progress: Adding clk_0 [clock_source 13.0]
-Info (12250): 2016.03.16.11:22:06 Progress: Parameterizing module clk_0
-Info (12250): 2016.03.16.11:22:06 Progress: Adding nios2_qsys_0 [altera_nios2_qsys 13.0]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module nios2_qsys_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module onchip_memory2_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module jtag_uart_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding new_sdram_controller_0 [altera_avalon_new_sdram_controller 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module new_sdram_controller_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding up_clocks_0 [altera_up_clocks 13.0]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module up_clocks_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding to_external_bus_bridge_0 [altera_up_avalon_to_external_bus_bridge 13.0]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module to_external_bus_bridge_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding rs232_0 [altera_up_avalon_rs232 13.0]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module rs232_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_0 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_1 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_1
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_2 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_2
-Info (12250): 2016.03.16.11:22:07 Progress: Adding character_lcd_0 [altera_up_avalon_character_lcd 13.0]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module character_lcd_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_3 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_3
-Info (12250): 2016.03.16.11:22:07 Progress: Adding timer_0 [altera_avalon_timer 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module timer_0
-Info (12250): 2016.03.16.11:22:07 Progress: Adding timer_1 [altera_avalon_timer 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module timer_1
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_4 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_4
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_5 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_5
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_6 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_6
-Info (12250): 2016.03.16.11:22:07 Progress: Adding pio_7 [altera_avalon_pio 13.0.1.99.2]
-Info (12250): 2016.03.16.11:22:07 Progress: Parameterizing module pio_7
-Info (12250): 2016.03.16.11:22:07 Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 13.0]
-Info (12250): 2016.03.16.11:22:18 Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
-Info (12250): 2016.03.16.11:22:18 Progress: Building connections
-Info (12250): 2016.03.16.11:22:18 Progress: Parameterizing connections
-Info (12250): 2016.03.16.11:22:18 Progress: Validating
-Info (12250): 2016.03.16.11:22:19 Progress: Done reading input file
+Info (12250): 2016.03.16.21:25:29 Progress: Loading module2-de2/nios_system.qsys
+Info (12250): 2016.03.16.21:25:29 Progress: Reading input file
+Info (12250): 2016.03.16.21:25:29 Progress: Adding clk_0 [clock_source 13.0]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module clk_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding nios2_qsys_0 [altera_nios2_qsys 13.0]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module nios2_qsys_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module onchip_memory2_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding jtag_uart_0 [altera_avalon_jtag_uart 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module jtag_uart_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding new_sdram_controller_0 [altera_avalon_new_sdram_controller 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module new_sdram_controller_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding up_clocks_0 [altera_up_clocks 13.0]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module up_clocks_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding to_external_bus_bridge_0 [altera_up_avalon_to_external_bus_bridge 13.0]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module to_external_bus_bridge_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding rs232_0 [altera_up_avalon_rs232 13.0]
+Info (12250): 2016.03.16.21:25:30 Progress: Parameterizing module rs232_0
+Info (12250): 2016.03.16.21:25:30 Progress: Adding pio_0 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_0
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_1 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_1
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_2 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_2
+Info (12250): 2016.03.16.21:25:31 Progress: Adding character_lcd_0 [altera_up_avalon_character_lcd 13.0]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module character_lcd_0
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_3 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_3
+Info (12250): 2016.03.16.21:25:31 Progress: Adding timer_0 [altera_avalon_timer 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module timer_0
+Info (12250): 2016.03.16.21:25:31 Progress: Adding timer_1 [altera_avalon_timer 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module timer_1
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_4 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_4
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_5 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_5
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_6 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_6
+Info (12250): 2016.03.16.21:25:31 Progress: Adding pio_7 [altera_avalon_pio 13.0.1.99.2]
+Info (12250): 2016.03.16.21:25:31 Progress: Parameterizing module pio_7
+Info (12250): 2016.03.16.21:25:31 Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 13.0]
+Info (12250): 2016.03.16.21:25:36 Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
+Info (12250): 2016.03.16.21:25:36 Progress: Building connections
+Info (12250): 2016.03.16.21:25:36 Progress: Parameterizing connections
+Info (12250): 2016.03.16.21:25:36 Progress: Validating
+Info (12250): 2016.03.16.21:25:36 Progress: Done reading input file
 Info (12250): Nios_system.pio_0: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info (12250): Nios_system.pio_3: PIO inputs are not hardwired in test bench. Undefined values will be read from PIO inputs during simulation.
 Info (12250): Nios_system: Generating nios_system "nios_system" for QUARTUS_SYNTH
@@ -10618,43 +10618,43 @@ Warning (12251): Nios_system: "No matching role found for rst_controller:reset_o
 Warning (12251): Nios_system: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
 Warning (12251): Nios_system: "No matching role found for rst_controller:reset_out:reset_req (reset_req)"
 Info (12250): Nios2_qsys_0: Starting RTL generation for module 'nios_system_nios2_qsys_0'
-Info (12250): Nios2_qsys_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -- /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=nios_system_nios2_qsys_0 --dir=/tmp/alt6876_4013766831899583474.dir/0003_nios2_qsys_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0003_nios2_qsys_0_gen//nios_system_nios2_qsys_0_processor_configuration.pl  --do_build_sim=0    --bogus  ]
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:28 (*) Starting Nios II generation
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:28 (*)   Checking for plaintext license.
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Couldn't query license setup in Quartus directory /home/nick/altera/13.0sp1/quartus
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   LM_LICENSE_FILE environment variable is empty
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Plaintext license not found.
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Checking for encrypted license (non-evaluation).
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Couldn't query license setup in Quartus directory /home/nick/altera/13.0sp1/quartus
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   LM_LICENSE_FILE environment variable is empty
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Encrypted license not found.  Defaulting to OCP evaluation license (produces a time-limited SOF)
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Elaborating CPU configuration settings
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)   Creating all objects for CPU
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:29 (*)     Testbench
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)     Instruction decoding
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)       Instruction fields
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)       Instruction decodes
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)       Signals for RTL simulation waveforms
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)       Instruction controls
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)     Pipeline frontend
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:30 (*)     Pipeline backend
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:33 (*)   Generating RTL from CPU objects
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:37 (*)   Creating encrypted RTL
-Info (12250): Nios2_qsys_0: # 2016.03.16 11:22:38 (*) Done Nios II generation
+Info (12250): Nios2_qsys_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/eperl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/cpu_lib -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/nios_lib -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -I /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2 -- /home/nick/altera/13.0sp1/quartus/../ip/altera/nios2_ip/altera_nios2/generate_rtl.epl --name=nios_system_nios2_qsys_0 --dir=/tmp/alt6877_616098369368564996.dir/0003_nios2_qsys_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0003_nios2_qsys_0_gen//nios_system_nios2_qsys_0_processor_configuration.pl  --do_build_sim=0    --bogus  ]
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:40 (*) Starting Nios II generation
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:40 (*)   Checking for plaintext license.
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Couldn't query license setup in Quartus directory /home/nick/altera/13.0sp1/quartus
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   LM_LICENSE_FILE environment variable is empty
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Plaintext license not found.
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Checking for encrypted license (non-evaluation).
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Couldn't query license setup in Quartus directory /home/nick/altera/13.0sp1/quartus
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Defaulting to contents of LM_LICENSE_FILE environment variable
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   LM_LICENSE_FILE environment variable is empty
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Encrypted license not found.  Defaulting to OCP evaluation license (produces a time-limited SOF)
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Elaborating CPU configuration settings
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)   Creating all objects for CPU
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:41 (*)     Testbench
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)     Instruction decoding
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)       Instruction fields
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)       Instruction decodes
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)       Signals for RTL simulation waveforms
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)       Instruction controls
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)     Pipeline frontend
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:42 (*)     Pipeline backend
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:44 (*)   Generating RTL from CPU objects
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:46 (*)   Creating encrypted RTL
+Info (12250): Nios2_qsys_0: # 2016.03.16 21:25:47 (*) Done Nios II generation
 Info (12250): Nios2_qsys_0: Done RTL generation for module 'nios_system_nios2_qsys_0'
 Info (12250): Nios2_qsys_0: "nios_system" instantiated altera_nios2_qsys "nios2_qsys_0"
 Info (12250): Onchip_memory2_0: Starting RTL generation for module 'nios_system_onchip_memory2_0'
-Info (12250): Onchip_memory2_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=nios_system_onchip_memory2_0 --dir=/tmp/alt6876_4013766831899583474.dir/0004_onchip_memory2_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0004_onchip_memory2_0_gen//nios_system_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Onchip_memory2_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=nios_system_onchip_memory2_0 --dir=/tmp/alt6877_616098369368564996.dir/0004_onchip_memory2_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0004_onchip_memory2_0_gen//nios_system_onchip_memory2_0_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Onchip_memory2_0: Done RTL generation for module 'nios_system_onchip_memory2_0'
 Info (12250): Onchip_memory2_0: "nios_system" instantiated altera_avalon_onchip_memory2 "onchip_memory2_0"
 Info (12250): Jtag_uart_0: Starting RTL generation for module 'nios_system_jtag_uart_0'
-Info (12250): Jtag_uart_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=nios_system_jtag_uart_0 --dir=/tmp/alt6876_4013766831899583474.dir/0005_jtag_uart_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0005_jtag_uart_0_gen//nios_system_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Jtag_uart_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=nios_system_jtag_uart_0 --dir=/tmp/alt6877_616098369368564996.dir/0005_jtag_uart_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0005_jtag_uart_0_gen//nios_system_jtag_uart_0_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Jtag_uart_0: Done RTL generation for module 'nios_system_jtag_uart_0'
 Info (12250): Jtag_uart_0: "nios_system" instantiated altera_avalon_jtag_uart "jtag_uart_0"
 Info (12250): New_sdram_controller_0: Starting RTL generation for module 'nios_system_new_sdram_controller_0'
-Info (12250): New_sdram_controller_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=nios_system_new_sdram_controller_0 --dir=/tmp/alt6876_4013766831899583474.dir/0006_new_sdram_controller_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0006_new_sdram_controller_0_gen//nios_system_new_sdram_controller_0_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): New_sdram_controller_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=nios_system_new_sdram_controller_0 --dir=/tmp/alt6877_616098369368564996.dir/0006_new_sdram_controller_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0006_new_sdram_controller_0_gen//nios_system_new_sdram_controller_0_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): New_sdram_controller_0: Done RTL generation for module 'nios_system_new_sdram_controller_0'
 Info (12250): New_sdram_controller_0: "nios_system" instantiated altera_avalon_new_sdram_controller "new_sdram_controller_0"
 Info (12250): Up_clocks_0: Starting Generation of Required Clocks for DE-Series Boards
@@ -10664,25 +10664,25 @@ Info (12250): To_external_bus_bridge_0: "nios_system" instantiated altera_up_ava
 Info (12250): Rs232_0: Starting Generation of RS232 UART
 Info (12250): Rs232_0: "nios_system" instantiated altera_up_avalon_rs232 "rs232_0"
 Info (12250): Pio_0: Starting RTL generation for module 'nios_system_pio_0'
-Info (12250): Pio_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_0 --dir=/tmp/alt6876_4013766831899583474.dir/0010_pio_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0010_pio_0_gen//nios_system_pio_0_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Pio_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_0 --dir=/tmp/alt6877_616098369368564996.dir/0010_pio_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0010_pio_0_gen//nios_system_pio_0_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Pio_0: Done RTL generation for module 'nios_system_pio_0'
 Info (12250): Pio_0: "nios_system" instantiated altera_avalon_pio "pio_0"
 Info (12250): Pio_1: Starting RTL generation for module 'nios_system_pio_1'
-Info (12250): Pio_1:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_1 --dir=/tmp/alt6876_4013766831899583474.dir/0011_pio_1_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0011_pio_1_gen//nios_system_pio_1_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Pio_1:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_1 --dir=/tmp/alt6877_616098369368564996.dir/0011_pio_1_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0011_pio_1_gen//nios_system_pio_1_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Pio_1: Done RTL generation for module 'nios_system_pio_1'
 Info (12250): Pio_1: "nios_system" instantiated altera_avalon_pio "pio_1"
 Info (12250): Pio_2: Starting RTL generation for module 'nios_system_pio_2'
-Info (12250): Pio_2:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_2 --dir=/tmp/alt6876_4013766831899583474.dir/0012_pio_2_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0012_pio_2_gen//nios_system_pio_2_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Pio_2:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_2 --dir=/tmp/alt6877_616098369368564996.dir/0012_pio_2_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0012_pio_2_gen//nios_system_pio_2_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Pio_2: Done RTL generation for module 'nios_system_pio_2'
 Info (12250): Pio_2: "nios_system" instantiated altera_avalon_pio "pio_2"
 Info (12250): Character_lcd_0: Starting Generation of Character LCD
 Info (12250): Character_lcd_0: "nios_system" instantiated altera_up_avalon_character_lcd "character_lcd_0"
 Info (12250): Pio_3: Starting RTL generation for module 'nios_system_pio_3'
-Info (12250): Pio_3:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_3 --dir=/tmp/alt6876_4013766831899583474.dir/0014_pio_3_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0014_pio_3_gen//nios_system_pio_3_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Pio_3:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=nios_system_pio_3 --dir=/tmp/alt6877_616098369368564996.dir/0014_pio_3_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0014_pio_3_gen//nios_system_pio_3_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Pio_3: Done RTL generation for module 'nios_system_pio_3'
 Info (12250): Pio_3: "nios_system" instantiated altera_avalon_pio "pio_3"
 Info (12250): Timer_0: Starting RTL generation for module 'nios_system_timer_0'
-Info (12250): Timer_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=nios_system_timer_0 --dir=/tmp/alt6876_4013766831899583474.dir/0015_timer_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6876_4013766831899583474.dir/0015_timer_0_gen//nios_system_timer_0_component_configuration.pl  --do_build_sim=0  ]
+Info (12250): Timer_0:   Generation command is [exec /home/nick/altera/13.0sp1/quartus/linux/perl/bin/perl -I /home/nick/altera/13.0sp1/quartus/common/ip/altera/common/perl/5.8.3 -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/europa -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin/perl_lib -I /home/nick/altera/13.0sp1/quartus/sopc_builder/bin -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/common -I /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- /home/nick/altera/13.0sp1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=nios_system_timer_0 --dir=/tmp/alt6877_616098369368564996.dir/0015_timer_0_gen/ --quartus_dir=/home/nick/altera/13.0sp1/quartus --verilog --config=/tmp/alt6877_616098369368564996.dir/0015_timer_0_gen//nios_system_timer_0_component_configuration.pl  --do_build_sim=0  ]
 Info (12250): Timer_0: Done RTL generation for module 'nios_system_timer_0'
 Info (12250): Timer_0: "nios_system" instantiated altera_avalon_timer "timer_0"
 Info (12250): Altera_UP_SD_Card_Avalon_Interface_0: "nios_system" instantiated Altera_UP_SD_Card_Avalon_Interface "Altera_UP_SD_Card_Avalon_Interface_0"
@@ -11556,19 +11556,19 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (144001): Generated suppressed messages file /home/nick/git/cpen391/module2-de2/output_files/lights.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 12284 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 12282 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 30 input pins
     Info (21059): Implemented 173 output pins
     Info (21060): Implemented 43 bidirectional pins
-    Info (21061): Implemented 11718 logic cells
+    Info (21061): Implemented 11716 logic cells
     Info (21064): Implemented 314 RAM segments
     Info (21065): Implemented 1 PLLs
     Info (21062): Implemented 4 DSP elements
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 192 warnings
-    Info: Peak virtual memory: 942 megabytes
-    Info: Processing ended: Wed Mar 16 11:23:40 2016
-    Info: Elapsed time: 00:01:41
-    Info: Total CPU time (on all processors): 00:01:59
+    Info: Peak virtual memory: 956 megabytes
+    Info: Processing ended: Wed Mar 16 21:26:27 2016
+    Info: Elapsed time: 00:01:01
+    Info: Total CPU time (on all processors): 00:01:08
 
 
 +------------------------------------------+

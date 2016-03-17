@@ -20,7 +20,7 @@ void load_from_SD_to_dataSets() {
 	Text(10,10,BLACK,WHITE,"Loading from SD Card...",0);
 
 	//TODO check return value?
-	sd_card_load(localData.dataSets, MAX_N_SETS, FILENAME);
+	sd_card_load(FILENAME);
 }
 
 /*
@@ -32,12 +32,10 @@ void save_to_SD_from_dataSets() {
 	printf("entering save_to_SD_from_dataSets\n");
 
 	//TODO check return value?
-	sd_card_save(localData.dataSets, MAX_N_SETS, FILENAME);
+	sd_card_save(FILENAME);
 
 	// DEBUG
 	printf("finished sd_card_save\n");
-
-	char teststr[JSON_DATA_MAX_LEN] = "";
 
 	// DEBUG
 	printf("exiting from save_to_SD_from_dataSets\n");
