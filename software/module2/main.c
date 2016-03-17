@@ -45,12 +45,14 @@ int main()
   initialize_colourScheme();
   initialize_datasets();
 
-  save_points();
+  //save_points();
+
+  //TODO DEBUG
   //initialize_demodata();
   //save_to_SD_from_dataSets();
   load_from_SD_to_dataSets();
+  printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
 
-  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets)); //TODO DEBUG
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
