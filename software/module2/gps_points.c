@@ -712,7 +712,7 @@ void read_gps_realtime(void){
 
 	NS = output[i];
 
-	i++; // to account for next comma before longitude data
+	i = long_start; // to account for next comma before longitude data
 	int k = 0;
 	while(output[i] != ','){
 		gps_realtime.longitude[k] = output[i];
