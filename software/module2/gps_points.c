@@ -721,6 +721,9 @@ void read_gps_realtime(void){
 
 	EW = output[i];
 
+	printf("latitude: %s\n", gps_realtime.latitude);
+	printf("longitude: %s\n", gps_realtime.longitude);
+
 	datetime_to_degrees(gps_realtime.latitude, gps_realtime.longitude);
 
 	/*if(NS == 'S'){
@@ -762,14 +765,27 @@ void datetime_to_degrees(char *lat, char *lon){
 	for( i=0; i < 3; i++ ){
 		lon_day[i] = lat[i];
 	}
+	
+	printf("lat mins: %s\n", lat_minutes);
+	printf("long mins: %s\n", lon_minutes);
 
+	printf("lat day: %s\n", lat_day);
+	printf("long day: %s\n", lon_day);
+	
 	// strings to float values
 	latmin_temp = atof(lat_minutes);
 	lonmin_temp = atof(lon_minutes);
 	latday_temp = atof(lat_day);
-	londay_temp = atof(lon_day);
+	londay_temp = aof(lon_day);
+	
+	printf("lat min float: %f\n", latmin_temp);
+	printf("long min float: %f\n", lonmin_temp);
+	
+	printf("lat min float: %f\n", latday_temp);
+	printf("long min float: %f\n", londay_temp);
 
 	// convert from date/time format to degree format
 	gps_realtime.lat_float = latmin_temp/60 + latday_temp;
 	gps_realtime.long_float = lonmin_temp/60 + londay_temp;
+	
 }
