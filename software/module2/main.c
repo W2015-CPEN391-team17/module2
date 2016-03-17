@@ -14,6 +14,7 @@
 #include "sub_menus.h"
 #include "sd_card.h"
 #include "datasets.h"
+#include "bluetooth.h"
 
 // Meta stuff.
 void initialize_components(void);
@@ -62,6 +63,7 @@ int main()
 void initialize_components(void)
 {
 	init_gps();
+	init_bluetooth();
 	Init_Touch();
 	clear_screen(WHITE);
 }
