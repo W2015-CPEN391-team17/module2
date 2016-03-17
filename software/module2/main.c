@@ -40,7 +40,9 @@ extern localDataSets localData;
 int main()
 {
   printf("Starting module 1 code.\n");
-
+  init_gps();
+  read_gps_realtime();
+/*
   initialize_components();
   initialize_colourScheme();
   initialize_datasets();
@@ -55,7 +57,7 @@ int main()
 
   // Should never reach this point, but here in case we implement an exit button.
   cleanup();
-
+*/
   printf("Program terminated.\n");
 
   return 0;

@@ -21,6 +21,10 @@
 // from datasets.c
 extern localDataSets localData;
 
+struct logs gps_log[50];
+struct points gps_points[70];
+struct points gps_realtime;
+
 /*
  * The GPS must be initialized before the user can read or write.
  * Call this function at the beginning before use.
@@ -146,6 +150,7 @@ void save_points(void){
 	int j = 200;
 	int k = 0;
 	int n = 23;
+	int s = 0;
 	int x = XRES/4;
 	int y = 5*YRES/6;
 	int r = 10;
@@ -173,7 +178,6 @@ void save_points(void){
 	for(log_count = 1; log_count < 20; log_count++){
 		read_string(gps_log[log_count].string);
 
-
 		// draws circles while extracting logs from GPS (for UI)
 		j = (n + j + 1) % 500;
 		n = (n + k*j) % 350;
@@ -187,7 +191,7 @@ void save_points(void){
 	for(log_count = 0; log_count < 9; log_count++){
 
 		strcpy(cur_string, (const char *)gps_log[log_count].string);
-		printf("%s\n", cur_string);
+
 		lat_count = 24;
 		long_count = 33;
 		lat_end = 32;
@@ -220,7 +224,6 @@ void save_points(void){
 			gps_points[place].long_float = FloatToLongitudeConversion(gps_points[place].long_swapped);
 			gps_points[place].lat_float = FloatToLatitudeConversion(gps_points[place].lat_swapped);
 
-			printf("latitude %d: %f, longitude %d: %f\n", place, gps_points[place].lat_float, place, gps_points[place].long_float);
 			place++;
 			lat_count += 27;
 			long_count += 27;
@@ -235,7 +238,6 @@ void save_points(void){
 			break;
 
 		strcpy(cur_string, (const char *)gps_log[log_count].string);
-		printf("%s\n", cur_string);
 
 		lat_count = 25;
 		long_count = 34;
@@ -269,8 +271,6 @@ void save_points(void){
 			gps_points[place].long_float = FloatToLongitudeConversion(gps_points[place].long_swapped);
 			gps_points[place].lat_float = FloatToLatitudeConversion(gps_points[place].lat_swapped);
 
-			printf("latitude %d: %f, longitude %d: %f\n", place, gps_points[place].lat_float, place, gps_points[place].long_float);
-
 			place++;
 			lat_count += 27;
 			long_count += 27;
@@ -291,6 +291,7 @@ void log_now(void){
 	int i;
 	const char command[] = "$PMTK186,1*20\r\n";
 	int length = strlen(command);
+	char string[256] = {0};
 
 	printf("Logging...\n");
 	// here we send the command to the gps
@@ -668,4 +669,107 @@ void save_demo_points(int set) {
 		}
 	}
 
+}
+
+void read_gps_realtime(void){
+
+	int i;
+	const char command[] = "$PMTK622,1*29\r\n";
+	int length = strlen(command);
+	char output[256] = {0};
+	int lat_start = 18;
+	int long_start = 30;
+	char NS;
+	char EW;
+	float switch_pole = -1;
+
+	// here we send the command to the gps
+	for(i = 0; i < length; i++){
+		putchar_gps(command[i]);
+	}
+
+	// The next lines are to actually parse the data to get
+	// latitude/longitude information from realtime output
+	read_string(output);
+	printf("%s\n", output);
+
+	while(output[0] != '$' || output[1] != 'G' ||
+		  output[2] != 'P' || output[3] != 'G' ||
+		  output[4] != 'G' || output[5] != 'A') {
+		read_string(output);
+		printf("%s\n", output);
+	}
+
+	i = lat_start;
+	while(output[i] != ','){
+		gps_realtime.latitude[i] = output[i];
+		i++;
+	}
+
+	i++; // this is to account for the comma parsing
+
+	NS = output[i];
+
+	i++; // to account for next comma before longitude data
+
+	while(output[i] != ','){
+		gps_realtime.longitude[i] = output[i];
+		i++;
+	}
+
+	i++; // account for comma before long_pole data
+
+	EW = output[i];
+
+	datetime_to_degrees(gps_realtime.latitude, gps_realtime.longitude);
+
+	/*if(NS == 'S'){
+		gps_realtime.latitude *= switch_pole;
+	}
+
+	if(EW == 'W'){
+		gps_realtime.longitude *= switch_pole;
+	}*/
+
+	printf("latitude: %f %c\n", gps_realtime.lat_float, NS);
+	printf("longitude: %f %c\n", gps_realtime.long_float, EW);
+}
+
+void datetime_to_degrees(char *lat, char *lon){
+
+	char lat_minutes[10] = {0};
+	char lon_minutes[10] = {0};
+	char lat_day[5] = {0};
+	char lon_day[5] = {0};
+	float latmin_temp, lonmin_temp, latday_temp, londay_temp;
+	int i;
+	int end_lat = 8;
+	int end_lon = 9;
+
+	// break up (d)dd and mm.mmmm
+	for( i=2; i < end_lat; i++ ){
+		lat_minutes[i-2] = lat[i];
+	}
+
+	for( i=3; i < end_lon; i++ ){
+		lon_minutes[i-3] = lat[i];
+	}
+
+	for( i=0; i < 2; i++ ){
+		lat_day[i] = lat[i];
+	}
+
+	for( i=0; i < 3; i++ ){
+		lon_day[i] = lat[i];
+	}
+
+	// strings to float values
+	latmin_temp = atof(lat_minutes);
+	lonmin_temp = atof(lon_minutes);
+	latday_temp = atof(lat_day);
+	londay_temp = atof(lon_day);
+
+	// convert from date/time format to degree format
+	gps_realtime.lat_float = latmin_temp/60 + latday_temp;
+	gps_realtime.long_float = lonmin_temp/60 + londay_temp;
 }
