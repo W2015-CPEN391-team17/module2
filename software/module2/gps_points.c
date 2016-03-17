@@ -701,9 +701,11 @@ void read_gps_realtime(void){
 	}
 
 	i = lat_start;
+	int j = 0;
 	while(output[i] != ','){
-		gps_realtime.latitude[i] = output[i];
+		gps_realtime.latitude[j] = output[i];
 		i++;
+		j++;
 	}
 
 	i++; // this is to account for the comma parsing
@@ -711,10 +713,11 @@ void read_gps_realtime(void){
 	NS = output[i];
 
 	i++; // to account for next comma before longitude data
-
+	int k = 0;
 	while(output[i] != ','){
-		gps_realtime.longitude[i] = output[i];
+		gps_realtime.longitude[k] = output[i];
 		i++;
+		k++;
 	}
 
 	i++; // account for comma before long_pole data
@@ -776,7 +779,7 @@ void datetime_to_degrees(char *lat, char *lon){
 	latmin_temp = atof(lat_minutes);
 	lonmin_temp = atof(lon_minutes);
 	latday_temp = atof(lat_day);
-	londay_temp = aof(lon_day);
+	londay_temp = atof(lon_day);
 	
 	printf("lat min float: %f\n", latmin_temp);
 	printf("long min float: %f\n", lonmin_temp);
