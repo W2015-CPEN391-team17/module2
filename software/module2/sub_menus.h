@@ -24,6 +24,12 @@
 #define SL_TOPBOX_YSTART YRES/3
 #define SL_TOPBOC_YEND 2*YRES/3
 
+//Dimensons for current position menu
+#define POS_LEFT_ALIGN XRES/2-200
+#define POS_RIGHT POS_LEFT_ALIGN + 400
+#define POS_TOP_YEND 0
+#define POS_BOT_ALIGN POS_TOP_YEND + 100
+
 //Dimensions for interpret menu
 #define I_LEFT_ALIGN XRES/5
 #define I_RIGHT_ALIGN 3*XRES/5
