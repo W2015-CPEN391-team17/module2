@@ -82,6 +82,9 @@ int SaveLoadMenu(Point* p, Colours* scheme){
 			return TRUE;
 		}
 	}
+
+	printf("SaveLoadMenu: should never reach here\n");
+	return -1; //should never reach here
 }
 
 /*

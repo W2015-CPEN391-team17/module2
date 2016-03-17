@@ -114,7 +114,10 @@ int sd_card_load(char *filename)
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
-								read = alt_up_sd_card_read(file_handle); //TODO check value of read?
+								read = alt_up_sd_card_read(file_handle);
+								if (read < 0) {
+									printf("SD card read failure: %d\n", read);
+								}
 								localData.bytes[i] = (unsigned char)read;
 							}
 							printf("\n\n!!!!!i was equal to %d\n\n",i);//TODO DEBUG
