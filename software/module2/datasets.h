@@ -25,9 +25,6 @@ typedef struct {
 	int headTimeQueue;
 } localDataSets;
 
-// data being displayed on the screen and cached from SD card
-localDataSets localData;
-
 struct{
 	int size;
 	GPSPoint points[MAX_N_POINTS*MAX_N_SETS];

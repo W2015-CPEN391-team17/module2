@@ -2,7 +2,6 @@
 #define SD_CARD_H_
 
 #include "datasets.h"
-#include "cJSON.h"
 
 #define FILENAME "data.txt"
 #define JSON_DATA_MAX_LEN ((100)*(MAX_N_SETS)*(MAX_N_POINTS))

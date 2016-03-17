@@ -18,6 +18,9 @@
 #include "conversion.h"
 #include "datasets.h"
 
+// from datasets.c
+extern localDataSets localData;
+
 /*
  * The GPS must be initialized before the user can read or write.
  * Call this function at the beginning before use.

@@ -144,7 +144,6 @@ ELF := module2.elf
 # Paths to C, C++, and assembly source files.
 C_SRCS += OutGraphicsCharFont1.c
 C_SRCS += OutGraphicsCharFont2.c
-C_SRCS += cJSON.c
 C_SRCS += conversion.c
 C_SRCS += datasets.c
 C_SRCS += fill.c

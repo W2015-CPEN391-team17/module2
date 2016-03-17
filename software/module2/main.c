@@ -34,6 +34,9 @@ Colours colourScheme;
 #define GPSPOINTLEN 2
 #define GPSPOINTSETLEN 2
 
+// from datasets.c
+extern localDataSets localData;
+
 int main()
 {
   printf("Starting module 1 code.\n");
