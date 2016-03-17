@@ -3,7 +3,7 @@
 
 #include "datasets.h"
 
-#define FILENAME "data.txt"
+#define FILENAME "newdata.txt"
 #define JSON_DATA_MAX_LEN ((100)*(MAX_N_SETS)*(MAX_N_POINTS))
 
 // Save from localData into the given file on the SD card
