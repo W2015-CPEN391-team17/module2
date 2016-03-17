@@ -12,6 +12,9 @@
 #include <math.h>
 #include <stdlib.h>
 
+// from gps_points.c
+extern struct points gps_points[100];
+
 /*
  * Assumes field is in line with lat/long. Converts global array of gps_points to array of GPSPoint scaled to screen pixels.
  * Callocs the returned pointer. Calling function needs to deal with free()'ing

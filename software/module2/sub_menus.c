@@ -82,6 +82,8 @@ int SaveLoadMenu(Point* p, Colours* scheme){
 			return TRUE;
 		}
 	}
+
+	return -1; //TODO should never happen
 }
 
 /*

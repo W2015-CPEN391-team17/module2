@@ -31,9 +31,6 @@ struct logs {
 	char string[256];
 };
 
-struct logs gps_log[50];
-struct points gps_points[70];
-
 void init_gps(void);
 char putchar_gps(char c);
 char getchar_gps(void);
@@ -48,5 +45,7 @@ void stop_log(void);
 void erase_log(void);
 void query_log(void);
 void save_demo_points(int);
+void save_gps_realtime(void);
+void datetime_to_degrees(char *lat, char *lon);
 
 #endif // GPS_POINTS_H_
