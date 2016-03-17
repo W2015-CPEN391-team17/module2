@@ -758,7 +758,7 @@ void datetime_to_degrees(char *lat, char *lon){
 	}
 
 	for( i=3; i < end_lon; i++ ){
-		lon_minutes[i-3] = lat[i];
+		lon_minutes[i-3] = lon[i];
 	}
 
 	for( i=0; i < 2; i++ ){
@@ -766,7 +766,7 @@ void datetime_to_degrees(char *lat, char *lon){
 	}
 
 	for( i=0; i < 3; i++ ){
-		lon_day[i] = lat[i];
+		lon_day[i] = lon[i];
 	}
 	
 	printf("lat mins: %s\n", lat_minutes);
