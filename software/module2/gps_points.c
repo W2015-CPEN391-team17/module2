@@ -684,9 +684,9 @@ void read_gps_realtime(void){
 	float switch_pole = -1;
 
 	// here we send the command to the gps
-	for(i = 0; i < length; i++){
-		putchar_gps(command[i]);
-	}
+	//for(i = 0; i < length; i++){
+	//	putchar_gps(command[i]);
+	//}
 
 	// The next lines are to actually parse the data to get
 	// latitude/longitude information from realtime output
