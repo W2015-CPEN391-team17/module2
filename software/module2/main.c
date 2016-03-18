@@ -40,9 +40,19 @@ extern localDataSets localData;
 
 int main()
 {
+  Point p;
+
   printf("Starting module 1 code.\n");
 
   initialize_components();
+
+  init_gps();
+
+  Text(10, 10, "Touch to get current location.");
+  p = GetPress();
+  p = GetRelease();
+
+  read_gps_realtime();
   initialize_colourScheme();
   initialize_datasets();
 
