@@ -38,15 +38,29 @@ Colours colourScheme;
 // from datasets.c
 extern localDataSets localData;
 
+void compareLocalDataSets(localDataSets *original, localDataSets *copied) {
+	printf("original headTimeQueue: %d, copied headTimeQueue: %d\n",
+			original->headTimeQueue, copied->headTimeQueue);
+	printf("TODO didn't write the other checks yet\n");
+}
+
 int main()
 {
   Point p;
 
-  printf("Starting module 1 code.\n");
+  // test SD card
+  initialize_demodata();
+  struct localDataSets originalLocalData = localData;
+  save_to_SD_from_dataSets();
+  load_from_SD_to_dataSets();
+  //TODO compare localData and originalLocalData
+  compareLocalDataSets(&originalLocalData, &localData);
 
+#if 0
+  printf("Starting module 2 code.\n");
   initialize_components();
 
-  init_gps();
+  init_gps(); //TODO why do we do this twice?
 
   Text(10, 10, "Touch to get current location.");
   p = GetPress();
@@ -61,14 +75,14 @@ int main()
   //TODO DEBUG
   //initialize_demodata();
   //save_to_SD_from_dataSets();
-  load_from_SD_to_dataSets();
-  printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
+  //load_from_SD_to_dataSets();
+  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
 
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
   cleanup();
-
+#endif
   printf("Program terminated.\n");
 
   return 0;

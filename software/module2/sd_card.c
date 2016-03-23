@@ -39,11 +39,10 @@ int sd_card_save(char *filename)
 							break;
 						}
 						default: {
-							// Write the entire struct to the SD card (one byte at a time)
-
 							//DEBUG
 							printf("Writing buffer to sd card\n");
 
+							// Write the entire struct to the SD card (one byte at a time)
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
@@ -120,7 +119,6 @@ int sd_card_load(char *filename)
 								}
 								localData.bytes[i] = (unsigned char)read;
 							}
-							printf("\n\n!!!!!i was equal to %d\n\n",i);//TODO DEBUG
 
 							if (alt_up_sd_card_fclose(file_handle) == false) {
 								printf("WARNING: alt_up_sd_card_fclose was unsuccessful\n");
