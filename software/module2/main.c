@@ -37,27 +37,81 @@ Colours colourScheme;
 // from datasets.c
 extern localDataSets localData;
 
+void compareLocalDataSets(localDataSets *original, localDataSets *copied)
+{
+	printf("\nsizeof localDataSets is %d\n\n", sizeof(localDataSets));
+
+	printf("%d %d\n", original->firstNumber, copied->firstNumber);
+	printf("%d %d\n", original->secondNumber, copied->secondNumber);
+	printf("original dataSets[9].size is %d, copied dataSets[9].size is %d\n",
+			original->dataSets[9].size, copied->dataSets[9].size);
+
+	printf("\nother test\n");
+
+	localDataSets data1;
+	localDataSets data2;
+	data1 = *original;
+	data2 = *copied;
+
+	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
+	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
+	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",
+			data1.dataSets[9].size, data2.dataSets[9].size);
+
+	int size = sizeof(localDataSets);
+	int i;
+	for (i = 0; i < size; i++) {
+		data2.bytes[i] = data1.bytes[i];
+	}
+
+	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
+	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
+	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",
+			data1.dataSets[9].size, data2.dataSets[9].size);
+
+}
+
 int main()
 {
-  printf("Starting module 1 code.\n");
-  init_gps();
-  read_gps_realtime();
-/*
+  Point p;
+
+  // test SD card
+  initialize_demodata();
+  localData.firstNumber = 12345;
+  localData.secondNumber = 6789;
+  localDataSets originalLocalData = localData;
+  save_to_SD_from_dataSets();
+  load_from_SD_to_dataSets();
+  //TODO compare localData and originalLocalData
+  compareLocalDataSets(&originalLocalData, &localData);
+
+#if 0
+  printf("Starting module 2 code.\n");
   initialize_components();
+
+  init_gps(); //TODO why do we do this twice?
+
+  Text(10, 10, "Touch to get current location.");
+  p = GetPress();
+  p = GetRelease();
+
+  read_gps_realtime();
   initialize_colourScheme();
   initialize_datasets();
 
-  save_points();
+  //save_points();
+
+  //TODO DEBUG
   //initialize_demodata();
   //save_to_SD_from_dataSets();
-  load_from_SD_to_dataSets();
+  //load_from_SD_to_dataSets();
+  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
 
-  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets)); //TODO DEBUG
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
   cleanup();
-*/
+#endif
   printf("Program terminated.\n");
 
   return 0;

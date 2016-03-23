@@ -23,10 +23,12 @@ typedef struct {
 typedef union
 {
 	struct {
+		int firstNumber; //TODO just for testing
+		int secondNumber; //TODO just for testing
 		dataSet dataSets[MAX_N_SETS]; // cache for SD contents
 		int headTimeQueue;
 	};
-	unsigned char bytes[0]; // to conveniently copy one byte at at time //81964
+	char bytes[0]; // to conveniently copy one byte at at time
 } localDataSets;
 
 struct{
