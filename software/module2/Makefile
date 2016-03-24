@@ -144,7 +144,6 @@ ELF := module2.elf
 # Paths to C, C++, and assembly source files.
 C_SRCS += OutGraphicsCharFont1.c
 C_SRCS += OutGraphicsCharFont2.c
-C_SRCS += cJSON.c
 C_SRCS += conversion.c
 C_SRCS += datasets.c
 C_SRCS += fill.c
@@ -191,7 +190,7 @@ CRT0 :=
 SYS_LIB :=
 
 # Define path to the root of the BSP.
-BSP_ROOT_DIR := C:/Users/Kyle/Documents/CPEN_391/module2_bsp/
+BSP_ROOT_DIR := ../module2_bsp/
 
 # List of application specific include directories, library directories and library names
 APP_INCLUDE_DIRS :=
@@ -202,7 +201,7 @@ APP_LIBRARY_NAMES :=
 BUILD_PRE_PROCESS :=
 BUILD_POST_PROCESS :=
 
-QUARTUS_PROJECT_DIR := C:/Users/Kyle/Documents/GitHub/module1/
+QUARTUS_PROJECT_DIR := ../../
 
 
 #END GENERATED
