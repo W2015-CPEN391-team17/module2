@@ -39,31 +39,35 @@ extern localDataSets localData;
 
 void compareLocalDataSets(localDataSets *original, localDataSets *copied)
 {
-	printf("\nsizeof localDataSets is %d\n\n", sizeof(localDataSets));
-
+	printf("At this point, localData should have the data that was read from SD\n");
+	printf("if these don't match, something went wrong with SD save/load\n");
 	printf("%d %d\n", original->firstNumber, copied->firstNumber);
 	printf("%d %d\n", original->secondNumber, copied->secondNumber);
 	printf("original dataSets[9].size is %d, copied dataSets[9].size is %d\n",
 			original->dataSets[9].size, copied->dataSets[9].size);
 
-	printf("\nother test\n");
+	printf("Now we will compare copying one byte at a time directly in RAM\n");
 
 	localDataSets data1;
 	localDataSets data2;
 	data1 = *original;
 	data2 = *copied;
 
+	printf("this data might not match if the previous part failed\n");
 	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
 	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
 	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",
 			data1.dataSets[9].size, data2.dataSets[9].size);
 
 	int size = sizeof(localDataSets);
+	char *data2bytes = (char *)&data2;
+	char *data1bytes = (char *)&data1;
 	int i;
 	for (i = 0; i < size; i++) {
-		data2.bytes[i] = data1.bytes[i];
+		data2bytes[i] = data1bytes[i];
 	}
 
+	printf("this data should match\n");
 	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
 	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
 	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",

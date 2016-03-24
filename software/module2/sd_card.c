@@ -43,17 +43,17 @@ int sd_card_save(char *filename)
 
 							//DEBUG
 							printf("Writing buffer to sd card\n");
-
+							char *bytes = (char *)&localData;
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
-								if (alt_up_sd_card_write(file_handle, (unsigned char)localData.bytes[i]) == false) {
+								if (alt_up_sd_card_write(file_handle, (unsigned char)bytes[i]) == false) {
 									printf("Error writing to file...\n");
 									alt_up_sd_card_fclose(file_handle);
 									return -1;
 								}
 								if (i < 5) {
-									printf("(unsigned char)localData.bytes[%d] is {%c}\n", i,(unsigned char)localData.bytes[i]);
+									printf("(unsigned char)localData.bytes[%d] is {%d}\n", i, (unsigned char)bytes[i]);
 								}
 							}
 
@@ -113,18 +113,19 @@ int sd_card_load(char *filename)
 						}
 						default: {
 							// Read the entire struct from the SD card (one byte at a time)
+							char *bytes = (char *)&localData;
 							short int read = alt_up_sd_card_read(file_handle);
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
 								read = alt_up_sd_card_read(file_handle); //TODO check value of read?
 								if (read < 0) {
-									printf("read was less than zero!!!!!!!!!!\n");
+									printf("WARNING: read < 0\n");
 								}
 								if (i < 5) {
-									printf("read for i=%d is {%c}\n", i, (char)read);
+									printf("read for i=%d is {%d}\n", i, (unsigned char)read);
 								}
-								localData.bytes[i] = (char)read;
+								bytes[i] = (unsigned char)read;
 							}
 
 							if (alt_up_sd_card_fclose(file_handle) == false) {
