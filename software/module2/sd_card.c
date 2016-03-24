@@ -114,7 +114,7 @@ int sd_card_load(char *filename)
 						default: {
 							// Read the entire struct from the SD card (one byte at a time)
 							char *bytes = (char *)&localData;
-							short int read = alt_up_sd_card_read(file_handle);
+							short int read;
 							int size = sizeof(localDataSets);
 							int i;
 							for (i = 0; i < size; i++) {
