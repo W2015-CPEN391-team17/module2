@@ -48,21 +48,50 @@ int main()
 {
   Point p;
 
-  // test SD card
-  initialize_demodata();
-  struct localDataSets originalLocalData = localData;
-  save_to_SD_from_dataSets();
-  load_from_SD_to_dataSets();
-  //TODO compare localData and originalLocalData
-  compareLocalDataSets(&originalLocalData, &localData);
+  /*NICK LOOK AT THIS*/
+//  // test SD card
+//  initialize_demodata();
+//  struct localDataSets originalLocalData = localData;
+//  save_to_SD_from_dataSets();
+//  load_from_SD_to_dataSets();
+//  //TODO compare localData and originalLocalData
+//  compareLocalDataSets(&originalLocalData, &localData);
+//
+//#if 0
+//  printf("Starting module 2 code.\n");
+//  initialize_components();
+//
+//  init_gps(); //TODO why do we do this twice?
+//
+//  Text(10, 10, "Touch to get current location.");
+//  p = GetPress();
+//  p = GetRelease();
+//
+//  read_gps_realtime();
+//  initialize_colourScheme();
+//  initialize_datasets();
+//
+//  //save_points();
+//
+//  //TODO DEBUG
+//  //initialize_demodata();
+//  //save_to_SD_from_dataSets();
+//  //load_from_SD_to_dataSets();
+//  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
+//
+//  main_menu();
+//
+//  // Should never reach this point, but here in case we implement an exit button.
+//  cleanup();
+//#endif
 
-#if 0
-  printf("Starting module 2 code.\n");
+  printf("Starting module 1 code.\n");
+
   initialize_components();
 
-  init_gps(); //TODO why do we do this twice?
+  init_gps();
 
-  Text(10, 10, "Touch to get current location.");
+  Text(10, 10, BLACK, WHITE, "Touch to get current location.", 0);
   p = GetPress();
   p = GetRelease();
 
@@ -73,16 +102,14 @@ int main()
   //save_points();
 
   //TODO DEBUG
-  //initialize_demodata();
+  initialize_demodata();
   //save_to_SD_from_dataSets();
   //load_from_SD_to_dataSets();
-  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
 
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
   cleanup();
-#endif
   printf("Program terminated.\n");
 
   return 0;
@@ -93,6 +120,8 @@ void initialize_components(void)
 {
 	init_gps();
 	init_bluetooth();
+	set_dongle_name(DONGLENAME, NAMELEN);
+	set_dongle_pass(DONGLEPASS, PASSLEN);
 	Init_Touch();
 	clear_screen(WHITE);
 }
@@ -163,9 +192,9 @@ void draw_menu(void)
 
 void main_menu(void)
 {
-	clear_screen(WHITE);
 
-	draw_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+	gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+	draw_heatmap();
 	Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
 	draw_menu();
 	Point p;
@@ -200,11 +229,7 @@ void main_menu(void)
 					connect_points(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme.connectTheDotsLine);
 				}
 			}else{
-				if(aggregate){
-					draw_heatmap(aggregateSet.points, aggregateSet.size, colourScheme);
-				}else{
-					draw_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
-				}
+				draw_heatmap();
 			}
 
 			Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
@@ -215,7 +240,16 @@ void main_menu(void)
 
 			if(p.x < XRES / NMENUS){
 				//Save/Load touched
+				int oldAg = aggregate;
 				aggregate = SaveLoadMenu(&p, &colourScheme);
+				if(oldAg != aggregate){
+					if(aggregate){
+						gen_heatmap(aggregateSet.points, aggregateSet.size, colourScheme);
+					}else{
+						gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+					}
+				}
+				draw_heatmap();
 				showing_heatmap = FALSE;
 				GetRelease();
 			}else if(p.x < 2 * XRES / NMENUS){
