@@ -52,9 +52,6 @@ int sd_card_save(char *filename)
 									alt_up_sd_card_fclose(file_handle);
 									return -1;
 								}
-								if (i < 5) {
-									printf("(unsigned char)localData.bytes[%d] is {%d}\n", i, (unsigned char)bytes[i]);
-								}
 							}
 
 							if (alt_up_sd_card_fclose(file_handle) == false) {
@@ -121,9 +118,6 @@ int sd_card_load(char *filename)
 								read = alt_up_sd_card_read(file_handle); //TODO check value of read?
 								if (read < 0) {
 									printf("WARNING: read < 0\n");
-								}
-								if (i < 5) {
-									printf("read for i=%d is {%d}\n", i, (unsigned char)read);
 								}
 								bytes[i] = (unsigned char)read;
 							}

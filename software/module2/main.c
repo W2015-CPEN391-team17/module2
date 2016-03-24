@@ -37,65 +37,14 @@ Colours colourScheme;
 // from datasets.c
 extern localDataSets localData;
 
-void compareLocalDataSets(localDataSets *original, localDataSets *copied)
-{
-	printf("At this point, localData should have the data that was read from SD\n");
-	printf("if these don't match, something went wrong with SD save/load\n");
-	printf("%d %d\n", original->firstNumber, copied->firstNumber);
-	printf("%d %d\n", original->secondNumber, copied->secondNumber);
-	printf("original dataSets[9].size is %d, copied dataSets[9].size is %d\n",
-			original->dataSets[9].size, copied->dataSets[9].size);
-
-	printf("Now we will compare copying one byte at a time directly in RAM\n");
-
-	localDataSets data1;
-	localDataSets data2;
-	data1 = *original;
-	data2 = *copied;
-
-	printf("this data might not match if the previous part failed\n");
-	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
-	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
-	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",
-			data1.dataSets[9].size, data2.dataSets[9].size);
-
-	int size = sizeof(localDataSets);
-	char *data2bytes = (char *)&data2;
-	char *data1bytes = (char *)&data1;
-	int i;
-	for (i = 0; i < size; i++) {
-		data2bytes[i] = data1bytes[i];
-	}
-
-	printf("this data should match\n");
-	printf("%d %d\n", data1.firstNumber, data2.firstNumber);
-	printf("%d %d\n", data1.secondNumber, data2.secondNumber);
-	printf("data1 dataSets[9].size is %d, data2 dataSets[9].size is %d\n",
-			data1.dataSets[9].size, data2.dataSets[9].size);
-
-}
-
 int main()
 {
   Point p;
 
-  // test SD card
-  initialize_demodata();
-  localData.firstNumber = 12345;
-  localData.secondNumber = 6789;
-  localDataSets originalLocalData = localData;
-  save_to_SD_from_dataSets();
-  load_from_SD_to_dataSets();
-  //TODO compare localData and originalLocalData
-  compareLocalDataSets(&originalLocalData, &localData);
-
-#if 0
   printf("Starting module 2 code.\n");
   initialize_components();
 
-  init_gps(); //TODO why do we do this twice?
-
-  Text(10, 10, "Touch to get current location.");
+  Text(10, 10, BLACK, WHITE, "Touch to get current location.", true);
   p = GetPress();
   p = GetRelease();
 
@@ -103,19 +52,15 @@ int main()
   initialize_colourScheme();
   initialize_datasets();
 
-  //save_points();
-
-  //TODO DEBUG
   //initialize_demodata();
+  //printf("demo data initialized hi kyle\n");
   //save_to_SD_from_dataSets();
-  //load_from_SD_to_dataSets();
-  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
+  load_from_SD_to_dataSets();
 
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
   cleanup();
-#endif
   printf("Program terminated.\n");
 
   return 0;
