@@ -20,13 +20,11 @@ typedef struct {
 	GPSPoint points[MAX_N_POINTS];
 } dataSet;
 
-typedef union
-{
-	struct {
-		dataSet dataSets[MAX_N_SETS]; // cache for SD contents
-		int headTimeQueue;
-	};
-	unsigned char bytes[0]; // to conveniently copy one byte at at time //81964
+typedef struct {
+	char firstNumber; //TODO just for testing
+	char secondNumber; //TODO just for testing
+	dataSet dataSets[MAX_N_SETS]; // cache for SD contents
+	int headTimeQueue;
 } localDataSets;
 
 struct{

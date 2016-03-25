@@ -48,50 +48,11 @@ int main()
 {
   Point p;
 
-  /*NICK LOOK AT THIS*/
-//  // test SD card
-//  initialize_demodata();
-//  struct localDataSets originalLocalData = localData;
-//  save_to_SD_from_dataSets();
-//  load_from_SD_to_dataSets();
-//  //TODO compare localData and originalLocalData
-//  compareLocalDataSets(&originalLocalData, &localData);
-//
-//#if 0
-//  printf("Starting module 2 code.\n");
-//  initialize_components();
-//
-//  init_gps(); //TODO why do we do this twice?
-//
-//  Text(10, 10, "Touch to get current location.");
-//  p = GetPress();
-//  p = GetRelease();
-//
-//  read_gps_realtime();
-//  initialize_colourScheme();
-//  initialize_datasets();
-//
-//  //save_points();
-//
-//  //TODO DEBUG
-//  //initialize_demodata();
-//  //save_to_SD_from_dataSets();
-//  //load_from_SD_to_dataSets();
-//  //printf("\n\nlocalDataSets size %d\n\n", sizeof(localDataSets));
-//
-//  main_menu();
-//
-//  // Should never reach this point, but here in case we implement an exit button.
-//  cleanup();
-//#endif
-
-  printf("Starting module 1 code.\n");
-
+  printf("Starting module 2 code.\n");
   initialize_components();
 
-  init_gps();
+  Text(10, 10, BLACK, WHITE, "Touch to get current location.", true);
 
-  Text(10, 10, BLACK, WHITE, "Touch to get current location.", 0);
   p = GetPress();
   p = GetRelease();
 
@@ -99,13 +60,13 @@ int main()
   initialize_colourScheme();
   initialize_datasets();
 
-  //save_points();
+  //initialize_demodata();
+  //printf("demo data initialized hi kyle\n");
 
-  //TODO DEBUG
-  initialize_demodata();
   //save_to_SD_from_dataSets();
-  //load_from_SD_to_dataSets();
+  load_from_SD_to_dataSets();
 
+  setupAggregate();
   main_menu();
 
   // Should never reach this point, but here in case we implement an exit button.
@@ -119,9 +80,9 @@ int main()
 void initialize_components(void)
 {
 	init_gps();
-	init_bluetooth();
-	set_dongle_name(DONGLENAME, NAMELEN);
-	set_dongle_pass(DONGLEPASS, PASSLEN);
+	//init_bluetooth();
+	//set_dongle_name(DONGLENAME, NAMELEN);
+	//set_dongle_pass(DONGLEPASS, PASSLEN);
 	Init_Touch();
 	clear_screen(WHITE);
 }
@@ -167,11 +128,6 @@ void initialize_demodata()
 	}
 
 	setupAggregate();
-}
-
-void read_from_SD()
-{
-
 }
 
 void cleanup(void)
