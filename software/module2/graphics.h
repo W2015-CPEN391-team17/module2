@@ -19,7 +19,7 @@
 #define MENU_TOP 440
 #define GOAL_WIDTH 60
 
-#define ASSERT_POINTS_ARE_VALID TRUE
+#define ASSERT_POINTS_ARE_VALID !!TRUE
 
 // graphics registers all address begin with '8' so as to by pass data cache on NIOS
 #define GraphicsCommandReg   		(*(volatile unsigned short int *)(0x84000000))

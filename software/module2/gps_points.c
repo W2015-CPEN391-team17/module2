@@ -183,7 +183,7 @@ void save_points(void){
 		n = (n + k*j) % 350;
 		k = (k + j + n + r) % 50;
 		x += (XRES-(XRES/2))/20;
-		WriteCircle(x, y, r, LIME);
+		WriteCircle((int)x, (int)y, (int)r, LIME);
 	}
 
 	// for first 9 logs, lat_count, long_count, lat_end, and long_end
@@ -370,7 +370,7 @@ void query_log(void){
 void save_demo_points(int set) {
 	int size = 100;
 	int i = 0;
-	int xval = 4;
+	int xval = 10;
 	int yval = 4;
 
 	localData.dataSets[set].size = size;
@@ -397,7 +397,7 @@ void save_demo_points(int set) {
 		}
 
 		for( i = 60; i < 70; i++ ){
-			xval -= 20;
+			xval -= 15;
 			yval -= 20;
 
 			localData.dataSets[set].points[i].x = xval;
@@ -592,7 +592,7 @@ void save_demo_points(int set) {
 			localData.dataSets[set].points[i].x = xval;
 			localData.dataSets[set].points[i].y = yval;
 
-			xval -= 2;
+			xval -= 1;
 			yval += 3;
 		}
 
@@ -600,7 +600,7 @@ void save_demo_points(int set) {
 			localData.dataSets[set].points[i].x = xval;
 			localData.dataSets[set].points[i].y = yval;
 
-			xval -= 5;
+			xval -= 2;
 			yval -= 5;
 		}
 
@@ -660,7 +660,7 @@ void save_demo_points(int set) {
 			localData.dataSets[set].points[i].x = xval;
 			localData.dataSets[set].points[i].y = yval;
 
-			xval -= 3;
+			xval -= 2;
 		}
 
 		for( i = 450; i < 500; i++){

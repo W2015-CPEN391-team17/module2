@@ -60,11 +60,11 @@ int main()
   initialize_colourScheme();
   initialize_datasets();
 
-  //initialize_demodata();
-  //printf("demo data initialized hi kyle\n");
+  initialize_demodata();
+  printf("demo data initialized hi kyle\n");
 
-  //save_to_SD_from_dataSets();
-  load_from_SD_to_dataSets();
+  save_to_SD_from_dataSets();
+  //load_from_SD_to_dataSets();
 
   setupAggregate();
   main_menu();

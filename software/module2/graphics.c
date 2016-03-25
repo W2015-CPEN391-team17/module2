@@ -13,16 +13,16 @@
  ******************************************************************************************/
 int check_if_point_is_on_screen(int x, int y) {
 	if (x < 0) {
-		printf("ERROR: Point not on screen: x value less than 0\n");
+		printf("ERROR: Point not on screen: x value (%d) less than 0\n", x);
 		return FALSE;
 	} else if (x > XRES-1) {
-		printf("ERROR: Point not on screen: x value greater than XRES-1\n");
+		printf("ERROR: Point not on screen: x value (%d) greater than XRES-1\n", x);
 		return FALSE;
 	} else if (y < 0) {
-		printf("ERROR: Point not on screen: y value less than 0\n");
+		printf("ERROR: Point not on screen: y value (%d) less than 0\n", y);
 		return FALSE;
 	} else if (y > YRES-1) {
-		printf("ERROR: Point not on screen: y value greater than YRES-1\n");
+		printf("ERROR: Point not on screen: y value (%d) greater than YRES-1\n", y);
 		return FALSE;
 	} else {
 		return TRUE;
@@ -295,6 +295,7 @@ void TestFilledRectangle(int x1, int y1, int x2, int y2, int color)
  */
 void WriteCircle(int x0, int y0, int radius, int color)
 {
+#if 0
 	if (ASSERT_POINTS_ARE_VALID && !check_if_point_is_on_screen(x0, y0)) {
 		printf("ERROR: DrawCircle failed for center point (%d,%d)\n", x0, y0);
 		return;
@@ -319,7 +320,7 @@ void WriteCircle(int x0, int y0, int radius, int color)
 		printf("ERROR: DrawCircle failed in negative y direction (%d,%d)\n", x0, y0-radius);
 		return;
 	}
-
+#endif
 	WAIT_FOR_GRAPHICS;
 
 	GraphicsX1Reg = x0;

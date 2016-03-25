@@ -73,7 +73,7 @@ void connect_points(GPSPoint points[], int numPoints, int connectTheDotsLine)
 	GPSPoint point_a;
 	GPSPoint point_b;
 	if (numPoints > 0) {
-		WriteCircle(points[0].x, points[0].y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
+		WriteCircle((int)points[0].x, (int)points[0].y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
 	}
 	int i;
 	for(i = 1; i < numPoints; i++) {
@@ -81,7 +81,7 @@ void connect_points(GPSPoint points[], int numPoints, int connectTheDotsLine)
 		point_b = points[i];
 
 		// draw circle around each point for testing
-		WriteCircle(point_b.x, point_b.y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
+		WriteCircle((int)point_b.x, (int)point_b.y, POINT_CIRCLE_RADIUS, connectTheDotsLine);
 
 		// draw a line from point_a to point_b
 		WriteLine((int)point_a.x, (int)point_a.y, (int)point_b.x, (int)point_b.y, connectTheDotsLine);
