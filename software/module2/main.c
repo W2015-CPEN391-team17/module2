@@ -197,7 +197,7 @@ void main_menu(void)
 			if(p.x < XRES / NMENUS){
 				//Save/Load touched
 				int oldAg = aggregate;
-				aggregate = SaveLoadMenu(&p, &colourScheme);
+				aggregate = SaveLoadMenu(&p, &colourScheme, aggregate);
 				if(oldAg != aggregate){
 					if(aggregate){
 						gen_heatmap(aggregateSet.points, aggregateSet.size, colourScheme);

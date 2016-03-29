@@ -12,6 +12,8 @@
 #include <string.h>
 #include <stdio.h>
 
+extern localDataSets localData;
+
 //Struct for background/text colour pairs - only a limited selection are available to the user
 typedef struct{
 	int background;
@@ -20,7 +22,13 @@ typedef struct{
 
 //Variables for the interpret menu
 double percentageN, percentageS, percentageE, percentageW;
+int timePerPoint = 1;//In seconds
+int currNPoints;
 
+//In seconds
+void setInterpretTimePerPoint(int timePerPointTemp){
+	timePerPoint = timePerPointTemp;
+}
 /*
  * Initialises the interpret menu, must be called each time the heat map data is changed. Saves doing computations every time
  * the interpret menu is brought up.
@@ -48,12 +56,14 @@ void initInterpret(int count[HEATMAP_H][HEATMAP_V], int nPoints){
 
 	percentageE = 1 - percentageW;
 	percentageS = 1 - percentageN;
+
+	currNPoints = nPoints;
 }
 
 /*
  * Displays the Save/Load menu.
  */
-int SaveLoadMenu(Point* p, Colours* scheme){
+int SaveLoadMenu(Point* p, Colours* scheme, int prevAg){
 	WriteFilledRectangle(0, 0, XRES-1, MENU_TOP-1, WHITE);
 
 	//If the background is WHITE then just draw boarders in black for buttons
@@ -83,8 +93,8 @@ int SaveLoadMenu(Point* p, Colours* scheme){
 		}
 	}
 
-	printf("SaveLoadMenu: should never reach here\n");
-	return -1; //should never reach here
+
+	return prevAg;
 }
 
 /*
@@ -151,6 +161,54 @@ void InterpretMenu(Point* p, Colours* scheme){
 	}
 
 	Text(I_RIGHT_ALIGN, I_BOT_ALIGN, scheme->text, scheme->menuBackground, str, 0);
+
+	if(localData.dataSets[localData.headTimeQueue].size == currNPoints){
+		int timeTaken = currNPoints * timePerPoint / 60;
+		if(timeTaken > 999){
+			str = "Time Taken: >999 minutes";
+		}else{
+			str = "Time Taken:     minute(s)";//In minutes, max 999
+			str[12] = (char)(timeTaken/100 + '0');
+			str[13] = (char)((timeTaken/10) % 10 + '0');
+			str[14] = (char)(timeTaken % 10 + '0');
+
+			if(str[12] == '0'){
+				str[12] = ' ';
+				if(str[13] == '0'){
+					str[13] = ' ';
+				}
+			}
+		}
+
+		Text(XRES/2 - 125, I_BOT_ALIGN + BUFFER_BTW_BUTTONS, scheme->text, scheme->menuBackground, str, 0);
+	}else{
+		int nSets = 0;
+		int i;
+		for(i = 0; i < MAX_N_SETS; i++){
+			if(localData.dataSets[i].size > 0){
+				nSets++;
+			}
+		}
+
+		int averageTimeTaken = currNPoints * timePerPoint / 60 / nSets;
+		if(averageTimeTaken > 999){
+			str = "Average Time Taken: >999 minutes";
+		}else{
+			str = "Average Time Taken:     minute(s)";//In minutes, max 999
+			str[20] = (char)(averageTimeTaken/100 + '0');
+			str[21] = (char)((averageTimeTaken/10) % 10 + '0');
+			str[22] = (char)(averageTimeTaken % 10 + '0');
+
+			if(str[20] == '0'){
+				str[20] = ' ';
+				if(str[21] == '0'){
+					str[21] = ' ';
+				}
+			}
+		}
+		Text(XRES/2 - 200, I_BOT_ALIGN + BUFFER_BTW_BUTTONS, scheme->text, scheme->menuBackground, str, 0);
+	}
+
 
 	do{
 		*p = GetPress();

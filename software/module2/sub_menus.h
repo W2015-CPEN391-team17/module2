@@ -45,7 +45,9 @@
 
 void initInterpret(int count[HEATMAP_H][HEATMAP_V], int nPoints);
 
-int SaveLoadMenu(Point*, Colours*);
+void setInterpretTimePerPoint(int timePerPointTemp);
+
+int SaveLoadMenu(Point*, Colours*, int);
 
 void InterpretMenu(Point*, Colours*);
 
