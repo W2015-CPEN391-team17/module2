@@ -24,10 +24,12 @@
 #define BT_STATUS_RX_MASK 0x01
 
 void init_bluetooth(void);
+int test_getchar(void);
+char getchar_btport(void);
 char putchar_btport(char c);
 void send_string(char string[], int length);
-void command_start(void);
-void command_end(void);
+void bt_command_start(void);
+void bt_command_end(void);
 void reset_dongle(void);
 void set_dongle_name(char name[], int length);
 void set_dongle_pass(char pass[], int length);

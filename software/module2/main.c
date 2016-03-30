@@ -80,9 +80,11 @@ int main()
 void initialize_components(void)
 {
 	init_gps();
-	//init_bluetooth();
-	//set_dongle_name(DONGLENAME, NAMELEN);
-	//set_dongle_pass(DONGLEPASS, PASSLEN);
+	init_bluetooth();
+	bt_command_start();
+	set_dongle_name(DONGLENAME, NAMELEN);
+	set_dongle_pass(DONGLEPASS, PASSLEN);
+	bt_command_end();
 	Init_Touch();
 	clear_screen(WHITE);
 }
