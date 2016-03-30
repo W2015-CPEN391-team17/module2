@@ -34,4 +34,6 @@ void reset_dongle(void);
 void set_dongle_name(char name[], int length);
 void set_dongle_pass(char pass[], int length);
 
+void processBT();
+
 #endif /* BLUETOOTH_H_ */

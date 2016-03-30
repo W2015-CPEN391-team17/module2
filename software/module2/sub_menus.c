@@ -9,6 +9,7 @@
 #include "graphics.h"
 #include "touchScreen.h"
 #include "datasets.h"
+#include "bluetooth.h"
 #include <string.h>
 #include <stdio.h>
 
@@ -70,28 +71,35 @@ int SaveLoadMenu(Point* p, Colours* scheme, int prevAg){
 	if(scheme->menuBackground == WHITE){
 		Rectangle(SL_LEFT_BOX_XSTART, SL_TOPBOX_YSTART, SL_LEFT_BOX_XEND, SL_TOPBOC_YEND, BLACK);
 		Rectangle(SL_RIGHT_BOX_XSTART, SL_TOPBOX_YSTART, SL_RIGHT_BOX_XEND, SL_TOPBOC_YEND, BLACK);
+		Rectangle(SL_UPPERBOX_XSTART, SL_UPPERBOX_YSTART, SL_UPPERBOX_XEND, SL_UPPERBOX_YEND, BLACK);
 	}else{ //Else use scheme to determine button colour
 		WriteFilledRectangle(SL_LEFT_BOX_XSTART, SL_TOPBOX_YSTART, SL_LEFT_BOX_XEND, SL_TOPBOC_YEND, scheme->menuBackground);
 		WriteFilledRectangle(SL_RIGHT_BOX_XSTART, SL_TOPBOX_YSTART,  SL_RIGHT_BOX_XEND, SL_TOPBOC_YEND, scheme->menuBackground);
+		WriteFilledRectangle(SL_UPPERBOX_XSTART, SL_UPPERBOX_YSTART, SL_UPPERBOX_XEND, SL_UPPERBOX_YEND, scheme->menuBackground);
 	}
 
 	//Draw text in buttons explaining them
 	Text(SL_LEFT_BOX_XSTART+19, (SL_TOPBOX_YSTART + SL_TOPBOC_YEND)/2, scheme->text, scheme->menuBackground, "Load Latest Data", 0);
 	Text(SL_RIGHT_BOX_XSTART+19, (SL_TOPBOX_YSTART + SL_TOPBOC_YEND)/2, scheme->text, scheme->menuBackground, "Load Aggregated Data", 0);
+	Text(SL_UPPERBOX_XSTART+19, (SL_UPPERBOX_YSTART + SL_UPPERBOX_YEND)/2, scheme->text, scheme->menuBackground, "Download Path from BT", 0);
 
+	do{
+		*p = GetPress();
 
-
-	*p = GetPress();
-		
-	if(p->y < SL_TOPBOC_YEND && p->y > SL_TOPBOX_YSTART && p->x > SL_LEFT_BOX_XSTART && p->x < SL_RIGHT_BOX_XEND){
-		if(p->x < SL_LEFT_BOX_XEND){
-			//Load latest data
-			return FALSE;
-		}else if(p->x > SL_RIGHT_BOX_XSTART){
-			//Load aggregate
-			return TRUE;
+		if(p->y < SL_TOPBOC_YEND && p->y > SL_TOPBOX_YSTART && p->x > SL_LEFT_BOX_XSTART && p->x < SL_RIGHT_BOX_XEND){
+			if(p->x < SL_LEFT_BOX_XEND){
+				//Load latest data
+				return FALSE;
+			}else if(p->x > SL_RIGHT_BOX_XSTART){
+				//Load aggregate
+				return TRUE;
+			}
+		}else if(p->x > SL_UPPERBOX_XSTART && p->x < SL_UPPERBOX_XEND && p->y > SL_UPPERBOX_YSTART && p->y < SL_UPPERBOX_YEND){
+			processBT();
+			//Add more here to re-generate heatmap etc etc
+			return prevAg;//Maybe change to T/F
 		}
-	}
+	}while(p->x < XRES/3 && p->y > MENU_TOP);
 
 
 	return prevAg;

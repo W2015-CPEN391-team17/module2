@@ -4,9 +4,13 @@
  *
  */
 
-#include "bluetooth.h"
 #include <stdio.h>
 #include <unistd.h>
+#include "bluetooth.h"
+#include "datasets.h"
+#include "gps_points.h"
+
+extern struct points gps_realtime;
 
 //call this function at the start of the program before
 //attempting to read or write via BT port
@@ -130,4 +134,20 @@ void set_dongle_pass(char pass[], int length)
 	send_string(pass, length);
 	send_string("\r\n", 2);
 	printf("Bluetooth dongle pass set to %s\n", pass);
+}
+
+void processBT(){
+	char buf[24*MAX_N_POINTS+1];
+
+	do{
+		putchar_btport('\n');
+		send_string(gps_realtime.latitude, 16);
+		putchar_btport(',');
+		send_string(gps_realtime.longitude, 16);
+		putchar_btport('\0');
+	}while(getchar_btport() != (char)(0x01));
+
+	putchar_btport((char)(0x02));
+
+	receive_string(buf,24*MAX_N_POINTS+1);
 }
