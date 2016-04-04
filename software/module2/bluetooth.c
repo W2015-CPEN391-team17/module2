@@ -5,12 +5,13 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include "bluetooth.h"
 #include "datasets.h"
 #include "gps_points.h"
 
-extern struct points gps_realtime;
+//extern struct points gps_realtime; //TODO KYLE DO THIS
 
 //call this function at the start of the program before
 //attempting to read or write via BT port
@@ -32,13 +33,12 @@ int test_getchar(void)
 
 char getchar_btport(void)
 {
-	//poll Rx bit in 6850 status register. Wait for it to become '1'
-		if (BT_STATUS & BT_STATUS_RX_MASK)
-		{
-			return BT_RXDATA;
-		}else{
-			return '-';
-		}
+	//poll Rx bit in 6850 status register
+	if (BT_STATUS & BT_STATUS_RX_MASK) {
+		return BT_RXDATA;
+	} else {
+		return '-';
+	}
 }
 
 // Receives a string from the bluetooth dongle into the given buffer through the serial port.
@@ -132,8 +132,10 @@ void set_dongle_pass(char pass[], int length)
 	printf("Bluetooth dongle pass set to %s\n", pass);
 }
 
+// "Literally just a testing function right now, [specification may change]" - Kyle
 void processBT(){
-	char buf[24*MAX_N_POINTS+1];
+	int number_of_chars = 24*MAX_N_POINTS+1;
+	char *buf = malloc(sizeof(char)*number_of_chars);
 
 	char result;
 	do{
@@ -152,5 +154,7 @@ void processBT(){
 		result = getchar_btport();
 	}while(result != '#');
 
-	receive_string(buf,24*MAX_N_POINTS+1);
+	receive_string(buf, number_of_chars);
+
+	free(buf);
 }
