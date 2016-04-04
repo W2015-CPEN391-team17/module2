@@ -60,11 +60,11 @@ int main()
   initialize_colourScheme();
   initialize_datasets();
 
-  initialize_demodata();
+  /*initialize_demodata();
   printf("demo data initialized hi kyle\n");
 
-  save_to_SD_from_dataSets();
-  //load_from_SD_to_dataSets();
+  save_to_SD_from_dataSets();*/
+  load_from_SD_to_dataSets();
 
   setupAggregate();
   main_menu();
@@ -79,6 +79,7 @@ int main()
 // initialize each of the hardware components and clear the screen
 void initialize_components(void)
 {
+	clear_screen(WHITE);
 	init_gps();
 	init_bluetooth();
 	bt_command_start();
@@ -86,7 +87,6 @@ void initialize_components(void)
 	set_dongle_pass(DONGLEPASS, PASSLEN);
 	bt_command_end();
 	Init_Touch();
-	clear_screen(WHITE);
 }
 
 // initialize the colour scheme that will be used for the menus and data visualizations

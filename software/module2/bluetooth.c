@@ -139,13 +139,17 @@ void set_dongle_pass(char pass[], int length)
 void processBT(){
 	char buf[24*MAX_N_POINTS+1];
 
+	char result;
 	do{
-		putchar_btport('\n');
-		send_string(gps_realtime.latitude, 16);
+		//putchar_btport('\n');
+		send_string("0.00000000000000", 16);
 		putchar_btport(',');
-		send_string(gps_realtime.longitude, 16);
-		putchar_btport('\0');
-	}while(getchar_btport() != (char)(0x01));
+		send_string("hellohellohelloo", 16);
+		putchar_btport('\r');
+		result = getchar_btport();
+	}while(result != (char)0x01);
+
+	printf("Hi\n");
 
 	putchar_btport((char)(0x02));
 
