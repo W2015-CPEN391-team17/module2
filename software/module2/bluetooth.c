@@ -33,36 +33,32 @@ int test_getchar(void)
 char getchar_btport(void)
 {
 	//poll Rx bit in 6850 status register. Wait for it to become '1'
-	while(1)
-	{
 		if (BT_STATUS & BT_STATUS_RX_MASK)
 		{
 			return BT_RXDATA;
+		}else{
+			return '-';
 		}
-	}
 }
 
 // Receives a string from the bluetooth dongle into the given buffer through the serial port.
 void receive_string(char buffer[], int maxlen)
 {
-	int i;
-	for (i = 0; i < maxlen; i++)
+	int i = 0;
+	while ( i < maxlen)
 	{
-		usleep(100000); //100ms wait
 		if (test_getchar())
 		{
 			buffer[i] = getchar_btport();
-			if (buffer[i] == '\0')
+			if (buffer[i] == '\0' || buffer[i] == '?')
 			{
 				break;
 			}
-		}
-		else
-		{
-			break;
+			i++;
 		}
 	}
 	//DEBUG PRINT
+	buffer[i] = '\0';
 	printf("Received string: %s\n", buffer);
 }
 
@@ -146,12 +142,15 @@ void processBT(){
 		putchar_btport(',');
 		send_string("hellohellohelloo", 16);
 		putchar_btport('\r');
+		putchar_btport('\n');
 		result = getchar_btport();
-	}while(result != (char)0x01);
+	}while(result != '!');
 
-	printf("Hi\n");
+	putchar_btport('@');
 
-	putchar_btport((char)(0x02));
+	do{
+		result = getchar_btport();
+	}while(result != '#');
 
 	receive_string(buf,24*MAX_N_POINTS+1);
 }
