@@ -96,8 +96,10 @@ int SaveLoadMenu(Point* p, Colours* scheme, int prevAg){
 			}
 		}else if(p->x > SL_UPPERBOX_XSTART && p->x < SL_UPPERBOX_XEND && p->y > SL_UPPERBOX_YSTART && p->y < SL_UPPERBOX_YEND){
 			processBT();
-			//Add more here to re-generate heatmap etc etc
-			return prevAg;//Maybe change to T/F
+			if(!prevAg){
+				gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+			}
+			return FALSE;
 		}
 	}while(p->x < XRES/3 && p->y > MENU_TOP);
 
