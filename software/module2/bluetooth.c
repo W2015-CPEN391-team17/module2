@@ -11,7 +11,8 @@
 #include "datasets.h"
 #include "gps_points.h"
 
-//extern struct points gps_realtime; //TODO KYLE DO THIS
+extern struct points gps_realtime;
+extern localDataSets localData;
 
 //call this function at the start of the program before
 //attempting to read or write via BT port
@@ -139,10 +140,13 @@ void processBT(){
 
 	char result;
 	do{
-		//putchar_btport('\n');
-		send_string("0.00000000000000", 16);
+		send_string(gps_realtime.latitude, 16);
 		putchar_btport(',');
-		send_string("hellohellohelloo", 16);
+		send_string(gps_realtime.longitude, 16);
+		putchar_btport(';');
+		send_string(LAT_P_M_STR, sizeof(LAT_P_M_STR)/sizeof(char));
+		putchar_btport(',');
+		send_string(LONG_P_M_STR, sizeof(LONG_P_M_STR)/sizeof(char));
 		putchar_btport('\r');
 		putchar_btport('\n');
 		result = getchar_btport();
@@ -155,6 +159,40 @@ void processBT(){
 	}while(result != '#');
 
 	receive_string(buf, number_of_chars);
+
+	if(localData.headTimeQueue == 0){
+		localData.headTimeQueue = MAX_N_SETS - 1;
+	}else{
+		localData.headTimeQueue = localData.headTimeQueue - 1;
+	}
+
+	localData.dataSets[localData.headTimeQueue].size = 0;
+
+	int i = 0;
+	while(buf[i] != '\0'){
+		char latlong[12];
+		int latlongInd = 0;
+		while(buf[i] != ','){
+			latlong[latlongInd++] = buf[i++];
+		}
+		i++;
+
+		latlong[latlongInd] = '\0';
+
+		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size].x = (float) atof(latlong);
+
+		latlongInd = 0;
+		while(buf[i] != ';'){
+			latlong[latlongInd++] = buf[i++];
+		}
+		i++;
+
+		latlong[latlongInd] = '\0';
+
+		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size++].y = (float) atof(latlong);
+	}
+
+	convertGPSPointsGivenPoints( localData.dataSets[localData.headTimeQueue].size, localData.dataSets[localData.headTimeQueue].points );
 
 	free(buf);
 }

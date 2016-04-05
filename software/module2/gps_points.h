@@ -11,6 +11,11 @@
 #define GPS_STATUS_TX_MASK 0x02
 #define GPS_STATUS_RX_MASK 0x01
 
+#define LAT_P_M_STR "0.0001" //get advice from Tim
+#define LAT_P_M_FLT (float) 0.0001
+#define LONG_P_M_STR "0.0001" //get advice from Tim
+#define LONG_P_M_FLT (float) 0.0001
+
 #include "conversion.h"
 
 struct points {

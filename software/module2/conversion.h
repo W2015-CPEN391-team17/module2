@@ -21,6 +21,7 @@
 typedef struct { float x, y; } GPSPoint;
 
 GPSPoint* convertGPSPoints( int nPoints );
+void convertGPSPointsGivenPoints( int nPoints, GPSPoint* points );
 void convertGPSReal( GPSPoint topLeft, GPSPoint topRight, GPSPoint points[], GPSPoint bottomRight, int nPoints);
 
 

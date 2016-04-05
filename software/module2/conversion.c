@@ -15,6 +15,8 @@
 // from gps_points.c
 extern struct points gps_points[100];
 
+extern struct points gps_realtime;
+
 /*
  * Assumes field is in line with lat/long. Converts global array of gps_points to array of GPSPoint scaled to screen pixels.
  * Callocs the returned pointer. Calling function needs to deal with free()'ing
@@ -40,6 +42,26 @@ GPSPoint* convertGPSPoints( int nPoints ){
 	}
 
 	return points;
+}
+
+void convertGPSPointsGivenPoints( int nPoints, GPSPoint* points ){
+
+	double mX = (double) XRES / (2*LONG_P_M_FLT); //Using two linear functions f(x) = mx + b so these are the m's
+	double mY = (double) MENU_TOP / (2*LAT_P_M_FLT);
+
+	int i;
+	for(i = 0; i < nPoints; i++){
+		points[i].x = mX * (points[i].x - (gps_realtime.long_float - LONG_P_M_FLT));
+		points[i].y = MENU_TOP - (mY * (points[i].y - (gps_realtime.lat_float - LAT_P_M_FLT)));
+
+		//Following if statements are for rounding
+		if(points[i].x > XRES && points[i].x < XRES + 1){
+			points[i].x = XRES;
+		}
+		if(points[i].y > MENU_TOP && points[i].y < MENU_TOP + 1){
+			points[i].y = MENU_TOP;
+		}
+	}
 }
 
 /*
