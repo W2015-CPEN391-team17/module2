@@ -47,6 +47,8 @@
 #define SET_BOT_YSTART MENU_TOP/2
 #define SET_BOT_YEND MENU_TOP - BUFFER_BTW_BUTTONS
 
+#define TIME_PER_POINT 5 //In seconds
+
 void initInterpret(int count[HEATMAP_H][HEATMAP_V], int nPoints);
 
 void setInterpretTimePerPoint(int timePerPointTemp);

@@ -23,13 +23,8 @@ typedef struct{
 
 //Variables for the interpret menu
 double percentageN, percentageS, percentageE, percentageW;
-int timePerPoint = 1;//In seconds
 int currNPoints;
 
-//In seconds
-void setInterpretTimePerPoint(int timePerPointTemp){
-	timePerPoint = timePerPointTemp;
-}
 /*
  * Initialises the interpret menu, must be called each time the heat map data is changed. Saves doing computations every time
  * the interpret menu is brought up.
@@ -96,8 +91,9 @@ int SaveLoadMenu(Point* p, Colours* scheme, int prevAg){
 			}
 		}else if(p->x > SL_UPPERBOX_XSTART && p->x < SL_UPPERBOX_XEND && p->y > SL_UPPERBOX_YSTART && p->y < SL_UPPERBOX_YEND){
 			processBT();
+			setupAggregate();
 			if(!prevAg){
-				gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, colourScheme);
+				gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, scheme);
 			}
 			return FALSE;
 		}
@@ -173,7 +169,7 @@ void InterpretMenu(Point* p, Colours* scheme){
 	Text(I_RIGHT_ALIGN, I_BOT_ALIGN, scheme->text, scheme->menuBackground, str, 0);
 
 	if(localData.dataSets[localData.headTimeQueue].size == currNPoints){
-		int timeTaken = currNPoints * timePerPoint / 60;
+		int timeTaken = currNPoints * TIME_PER_POINT / 60;
 		if(timeTaken > 999){
 			str = "Time Taken: >999 minutes";
 		}else{
@@ -200,7 +196,7 @@ void InterpretMenu(Point* p, Colours* scheme){
 			}
 		}
 
-		int averageTimeTaken = currNPoints * timePerPoint / 60 / nSets;
+		int averageTimeTaken = currNPoints * TIME_PER_POINT / 60 / nSets;
 		if(averageTimeTaken > 999){
 			str = "Average Time Taken: >999 minutes";
 		}else{
