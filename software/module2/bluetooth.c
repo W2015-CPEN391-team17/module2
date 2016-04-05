@@ -10,6 +10,7 @@
 #include "bluetooth.h"
 #include "datasets.h"
 #include "gps_points.h"
+#include "sd_card.h"
 
 extern struct points gps_realtime;
 extern localDataSets localData;
@@ -195,4 +196,6 @@ void processBT(){
 	convertGPSPointsGivenPoints( localData.dataSets[localData.headTimeQueue].size, localData.dataSets[localData.headTimeQueue].points );
 
 	free(buf);
+
+	save_to_SD_from_dataSets();
 }
