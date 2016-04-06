@@ -92,8 +92,20 @@ int SaveLoadMenu(Point* p, Colours* scheme, int prevAg){
 		}else if(p->x > SL_UPPERBOX_XSTART && p->x < SL_UPPERBOX_XEND && p->y > SL_UPPERBOX_YSTART && p->y < SL_UPPERBOX_YEND){
 			processBT();
 			setupAggregate();
+			printf("Done setup Ag\n");
+			/*colourScheme.shades[0] = OLIVE_DRAB;
+			colourScheme.shades[1] = YELLOW_GREEN;
+			colourScheme.shades[2] = LAWN_GREEN;
+			colourScheme.shades[3] = GREEN_YELLOW;
+			colourScheme.shades[4] = YELLOW;
+			colourScheme.shades[5] = GOLD;
+			colourScheme.shades[6] = ORANGE;
+			colourScheme.shades[7] = DARK_ORANGE;
+			colourScheme.shades[8] = ORANGE_RED;
+			colourScheme.shades[9] = RED;*/
 			if(!prevAg){
-				gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, scheme);
+				gen_heatmap(localData.dataSets[localData.headTimeQueue].points, localData.dataSets[localData.headTimeQueue].size, *scheme);
+				printf("Done gen heatmap\n");
 			}
 			return FALSE;
 		}

@@ -61,7 +61,6 @@ void receive_string(char buffer[], int maxlen)
 	}
 	//DEBUG PRINT
 	buffer[i] = '\0';
-	printf("Received string: %s\n", buffer);
 }
 
 char putchar_btport(char c)
@@ -83,9 +82,11 @@ char putchar_btport(char c)
 void send_string(char string[], int length)
 {
 	int i;
-	for (i = 0; i < length; i++)
+	for (i = 0; i < length && string[i] != '\0'; i++)
 	{
-		usleep(100000); //100ms wait
+		if(i != 0){
+			usleep(100000); //100ms wait
+		}
 		putchar_btport(string[i]);
 	}
 }
@@ -136,30 +137,38 @@ void set_dongle_pass(char pass[], int length)
 
 // "Literally just a testing function right now, [specification may change]" - Kyle
 void processBT(){
-	int number_of_chars = 24*MAX_N_POINTS+1;
+	int number_of_chars = 23*MAX_N_POINTS+1;
 	char *buf = malloc(sizeof(char)*number_of_chars);
 
+	sprintf(gps_realtime.latitude, "%f", gps_realtime.lat_float);
+	sprintf(gps_realtime.longitude, "%f", gps_realtime.long_float);
+
+	printf(gps_realtime.latitude);
+	printf("\n");
 	char result;
 	do{
+		putchar_btport('#');
 		send_string(gps_realtime.latitude, 16);
 		putchar_btport(',');
+		putchar_btport('-'); //change this
 		send_string(gps_realtime.longitude, 16);
 		putchar_btport(',');
 		send_string(LAT_P_M_STR, sizeof(LAT_P_M_STR)/sizeof(char));
 		putchar_btport(',');
 		send_string(LONG_P_M_STR, sizeof(LONG_P_M_STR)/sizeof(char));
+		putchar_btport('?');
 		putchar_btport('\r');
 		putchar_btport('\n');
 		result = getchar_btport();
-	}while(result != '!');
+	}while(result != '#' && result != '?');
 
-	putchar_btport('@');
-
-	do{
-		result = getchar_btport();
-	}while(result != '#');
-
+	while(getchar_btport() != '#'){
+	}
 	receive_string(buf, number_of_chars);
+
+	putchar_btport('=');
+
+	printf(buf);
 
 	if(localData.headTimeQueue == 0){
 		localData.headTimeQueue = MAX_N_SETS - 1;
@@ -171,7 +180,7 @@ void processBT(){
 
 	int i = 0;
 	while(buf[i] != '\0'){
-		char latlong[12];
+		char latlong[14];
 		int latlongInd = 0;
 		while(buf[i] != ','){
 			latlong[latlongInd++] = buf[i++];
@@ -180,7 +189,7 @@ void processBT(){
 
 		latlong[latlongInd] = '\0';
 
-		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size].x = (float) atof(latlong);
+		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size].y = (float) atof(latlong);
 
 		latlongInd = 0;
 		while(buf[i] != ';'){
@@ -190,7 +199,7 @@ void processBT(){
 
 		latlong[latlongInd] = '\0';
 
-		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size++].y = (float) atof(latlong);
+		localData.dataSets[localData.headTimeQueue].points[localData.dataSets[localData.headTimeQueue].size++].x = (float) atof(latlong);
 	}
 
 	convertGPSPointsGivenPoints( localData.dataSets[localData.headTimeQueue].size, localData.dataSets[localData.headTimeQueue].points );
@@ -198,4 +207,5 @@ void processBT(){
 	free(buf);
 
 	save_to_SD_from_dataSets();
+	printf("\nEnd of bluetooth\n");
 }

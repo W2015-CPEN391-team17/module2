@@ -188,6 +188,7 @@ void main_menu(void)
 				}
 			}else{
 				draw_heatmap();
+				Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
 			}
 
 			Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
@@ -209,6 +210,8 @@ void main_menu(void)
 				}
 				if(!(p.y > MENU_TOP)){
 					draw_heatmap();
+					Rectangle(XRES/2-5, MENU_TOP/2-5, XRES/2+5, MENU_TOP/2+5, BLACK);
+					printf("Done drawing heatmap\n");
 				}
 				showing_heatmap = FALSE;
 				GetRelease();

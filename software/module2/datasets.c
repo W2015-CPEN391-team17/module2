@@ -17,7 +17,6 @@ localDataSets localData;
  * Load SD card contents to localData.dataSets
  */
 void load_from_SD_to_dataSets() {
-	Text(10,10,BLACK,WHITE,"Loading from SD Card...",0);
 	int result = sd_card_load(FILENAME);
 	if (result) {
 		printf("load_from_SD_to_dataSets result!!!\n");
