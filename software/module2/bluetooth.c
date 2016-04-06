@@ -150,7 +150,6 @@ void processBT(){
 		putchar_btport('#');
 		send_string(gps_realtime.latitude, 16);
 		putchar_btport(',');
-		putchar_btport('-'); //change this
 		send_string(gps_realtime.longitude, 16);
 		putchar_btport(',');
 		send_string(LAT_P_M_STR, sizeof(LAT_P_M_STR)/sizeof(char));

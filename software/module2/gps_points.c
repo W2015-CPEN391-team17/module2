@@ -729,13 +729,13 @@ void read_gps_realtime(void){
 
 	datetime_to_degrees(gps_realtime.latitude, gps_realtime.longitude);
 
-	/*if(NS == 'S'){
-		gps_realtime.latitude *= switch_pole;
+	if(NS == 'S'){
+		gps_realtime.lat_float *= -1;
 	}
 
 	if(EW == 'W'){
-		gps_realtime.longitude *= switch_pole;
-	}*/
+		gps_realtime.long_float *= -1;
+	}
 
 	printf("latitude: %f %c \n", gps_realtime.lat_float, NS);
 	printf("longitude: %f %c \n", gps_realtime.long_float, EW);
