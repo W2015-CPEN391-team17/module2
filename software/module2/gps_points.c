@@ -737,11 +737,8 @@ void read_gps_realtime(void){
 		gps_realtime.longitude *= switch_pole;
 	}*/
 
-	gps_realtime.lat_float = 49.2611;
-	gps_realtime.long_float = 123.24800;
-
-	printf("latitude: %f %c TEST\n", gps_realtime.lat_float, NS);
-	printf("longitude: %f %c TEST\n", gps_realtime.long_float, EW);
+	printf("latitude: %f %c \n", gps_realtime.lat_float, NS);
+	printf("longitude: %f %c \n", gps_realtime.long_float, EW);
 }
 
 void datetime_to_degrees(char *lat, char *lon){
