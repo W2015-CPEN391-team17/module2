@@ -143,7 +143,7 @@ void processBT(){
 	sprintf(gps_realtime.latitude, "%f", gps_realtime.lat_float);
 	sprintf(gps_realtime.longitude, "%f", gps_realtime.long_float);
 
-	printf(gps_realtime.latitude);
+	printf(gps_realtime.longitude);
 	printf("\n");
 	char result;
 	do{

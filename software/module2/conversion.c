@@ -51,7 +51,7 @@ void convertGPSPointsGivenPoints( int nPoints, GPSPoint* points ){
 
 	int i;
 	for(i = 0; i < nPoints; i++){
-		points[i].x = mX * (points[i].x - ((0-gps_realtime.long_float) - LONG_P_M_FLT));
+		points[i].x = mX * (points[i].x - ((gps_realtime.long_float) - LONG_P_M_FLT));
 		points[i].y = MENU_TOP - (mY * (points[i].y - (gps_realtime.lat_float - LAT_P_M_FLT)));
 
 		//Following if statements are for rounding
